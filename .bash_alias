@@ -21,3 +21,5 @@ alias sm="mplayer -loop 0 -shuffle ~/Music/*3"
 alias puburl="dropbox puburl"
 alias nautilus="nautilus --no-desktop"
 alias gdb="gdb -q"
+
+alias ls="ls -G"
