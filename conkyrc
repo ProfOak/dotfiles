@@ -1,0 +1,20 @@
+out_to_x no
+own_window no
+out_to_console yes
+max_text_width 0
+background no
+update_interval 2
+total_run_times 0
+use_spacer right 
+short_units yes
+
+TEXT
+
+[$mpd_status: $mpd_smart] \
+[Vol: ${execi 10 amixer get Master | grep -oE "[[:digit:]]*%" | head -1}] \
+[${if_existing /sys/class/power_supply/BAT0/present}Bat: ${execi 10 acpi -b | awk '{print $4}'}\
+${else}Bat: N/A]\
+${endif} \
+[${time %m/%d %I:%M %P}]
+
+
