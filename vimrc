@@ -17,7 +17,7 @@ set nu
 syntax on
 filetype on 
 filetype plugin on 
-filetype plugin indent off
+"filetype plugin indent off
 
 " thank you based tim pope
 execute pathogen#infect()
@@ -30,13 +30,24 @@ noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 
+" maximum buffer control
+noremap <F2> :buffers<CR>:buffer<Space>
+noremap <Leader>z :bNext<CR>
+noremap <Leader>x :bprevious<CR>
+noremap <Leader><tab> <C-^>
+noremap <Leader>1 :b 1<CR>
+noremap <Leader>2 :b 2<CR>
+noremap <Leader>3 :b 3<CR>
+noremap <Leader>4 :b 4<CR>
+noremap <Leader>5 :b 5<CR>
+
 " vim airline/statusbar
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_alt_sep = '>'
 
 
 " rainbow-parentheses
-" I started using Racket (scheme)
+" I started using Racket 
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
