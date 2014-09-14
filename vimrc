@@ -32,8 +32,8 @@ noremap <C-k> <C-w>k
 
 " maximum buffer control
 noremap <F2> :buffers<CR>:buffer<Space>
-noremap <Leader>z :bNext<CR>
-noremap <Leader>x :bprevious<CR>
+noremap <Leader>x :bNext<CR>
+noremap <Leader>z :bprevious<CR>
 noremap <Leader><tab> <C-^>
 noremap <Leader>1 :b 1<CR>
 noremap <Leader>2 :b 2<CR>
