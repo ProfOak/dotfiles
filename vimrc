@@ -1,3 +1,14 @@
+
+" plugins used
+" pathogen
+" vim-airline
+" nerdcommenter
+" nerdtree - not sure if want, because of ranger
+" rainbow-parentheses
+" vim-racket
+" vim-snipmate
+"
+
 set autoindent
 set smartindent
 set expandtab
@@ -23,6 +34,8 @@ filetype plugin on
 execute pathogen#infect()
 
 let mapleader=","
+imap jj <esc>
+
 
 " switching between panes easier
 noremap <C-l> <C-w>l
