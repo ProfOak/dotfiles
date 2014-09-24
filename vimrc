@@ -30,12 +30,20 @@ filetype on
 filetype plugin on 
 "filetype plugin indent off
 
-" thank you based tim pope
-execute pathogen#infect()
-
 let mapleader=","
 imap jj <esc>
 
+" word wrapping on cursor movement
+set whichwrap+=<,>,h,l,[,]
+
+
+""""""""""""""""""""""""""""
+"       plugins
+"
+""""""""""""""""""""""""""""
+
+" thank you based tim pope
+execute pathogen#infect()
 
 " switching between panes easier
 noremap <C-l> <C-w>l

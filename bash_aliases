@@ -7,6 +7,9 @@ PS1="\n \[\e[1;37m\]┌─[\[\e[1;36m\] \d \[\e[1;31m\]\T \[\e[1;37m\]] \n\[\e[1
 # PS1="\n \[\e[1;37m\][\[\e[1;36m\] \d \[\e[1;31m\]\T \[\e[1;37m\]] \n\[\e[1;37m\][ \[\e[1;34m\]@ \[\e[1;32m\]\w \[\e[1;37m\]]\[\e[1;35m\]---> \[\e[0;37m\]"
 ####
 
+EDITOR=vim
+
+
 #functions
 
 function ghist {
@@ -16,10 +19,6 @@ function gps {
     ps aux | grep $1
 }
 
-# short description from wikipedia
-function wiki {
-        dig +short txt $1.wp.dg.cx
-}
 
 # display the file size for current folder
 function fs {
@@ -37,4 +36,7 @@ alias z="mplayer -loop 0"
 alias sm="mplayer -loop 0 -shuffle ~/Music/*3"
 alias puburl="dropbox puburl"
 alias gdb="gdb -q"
+# sxiv-helper is a shellscript designed to use sxiv on all pictures in a directory
+alias sxiv="sxiv-helper"
+alias links2="links2 https://duckduckgo.com"
 
