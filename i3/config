@@ -14,7 +14,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
-font pango: Terminus  
+font pango: Terminus, FontAwesome
 #font pango:Source Code Pro for Powerline 10px
 # The font above is very space-efficient, that is, it looks good, sharp and
 # clear in small sizes. However, if you need a lot of unicode glyphs or
@@ -26,7 +26,7 @@ font pango: Terminus
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec urxvt -e tmux attach
 
 # kill focused window
 bindsym $mod+Shift+c kill
@@ -89,10 +89,10 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # switch to workspace
-bindsym $mod+1 workspace 1: chat
-bindsym $mod+2 workspace 2: work
-bindsym $mod+3 workspace 3: media
-bindsym $mod+4 workspace 4: web
+bindsym $mod+1 workspace 1: chat 
+bindsym $mod+2 workspace 2: work 
+bindsym $mod+3 workspace 3: music 
+bindsym $mod+4 workspace 4: web 
 bindsym $mod+5 workspace 5: e
 bindsym $mod+6 workspace 6: x
 bindsym $mod+7 workspace 7: t
@@ -101,10 +101,10 @@ bindsym $mod+9 workspace 9: a
 bindsym $mod+0 workspace 10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1: chat
-bindsym $mod+Shift+2 move container to workspace 2: work
-bindsym $mod+Shift+3 move container to workspace 3: media
-bindsym $mod+Shift+4 move container to workspace 4: web
+bindsym $mod+Shift+1 move container to workspace 1: chat 
+bindsym $mod+Shift+2 move container to workspace 2: work 
+bindsym $mod+Shift+3 move container to workspace 3: music 
+bindsym $mod+Shift+4 move container to workspace 4: web 
 bindsym $mod+Shift+5 move container to workspace 5: e
 bindsym $mod+Shift+6 move container to workspace 6: x
 bindsym $mod+Shift+7 move container to workspace 7: t
@@ -113,8 +113,8 @@ bindsym $mod+Shift+9 move container to workspace 9: a
 bindsym $mod+Shift+0 move container to workspace 10
 
 # titlebar colors
-client.focused          #00ddff #000000 #ffffff #ffffff
-client.focused_inactive #00ddff #000000 #ffffff #ffffff
+client.focused          #000000 #000000 #ffffff #ffffff
+client.focused_inactive #000000 #000000 #ffffff #ffffff
 client.unfocused        #000000 #000000 #888888 #ffffff
 client.urgent           #ff0000 #000000 #ff0000 #ffffff
 
@@ -123,7 +123,7 @@ bindsym $mod+Shift+t reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+q exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+q exec i3-msg exit
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -156,10 +156,10 @@ bindsym $mod+r mode "resize"
 bar {
         status_command conky
         position top
-        font pango: Terminus
+        font pango: Terminus, fontAwesome
         colors {
             background #000000
-            statusline #ffffff
+            statusline #00ddff
             focused_workspace  #000000 #000000 #00ddff
             inactive_workspace #000000 #000000 #ffffff
             urgent_workspace   #000000 #000000 #ff0000
@@ -176,7 +176,7 @@ workspace_auto_back_and_forth yes
 for_window [class="Pidgin"] floating enable
 
 #firefox to window 4
-assign [class="Firefox"] 4: web
+assign [class="Firefox"] 4: web 
 
 # dwm-like tab switching
 bindsym $mod+Tab workspace back_and_forth
