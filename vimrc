@@ -3,7 +3,7 @@
 " pathogen
 " vim-airline
 " nerdcommenter
-" nerdtree - not sure if want, because of ranger
+" nerdtree - Not sure if I'll keep it
 " rainbow-parentheses
 " vim-racket
 " vim-snipmate
@@ -16,13 +16,17 @@ set showmatch
 set ts=4
 set sts=4 
 set sw=4
+set laststatus=2
 
 " tabs for go and make files
 autocmd FileType go set noexpandtab
 autocmd FileType make set noexpandtab
+
+" I like Dr Racket's defaults
 autocmd FileType racket set ts=2 sts=2 sw=2
 
-colorscheme wombat
+
+"colorscheme base16-default-bright
 
 set nu
 syntax on
@@ -36,13 +40,14 @@ imap jj <esc>
 " word wrapping on cursor movement
 set whichwrap+=<,>,h,l,[,]
 
+" 256 color term
+set t_Co=256
 
 """"""""""""""""""""""""""""
 "       plugins
 "
 """"""""""""""""""""""""""""
 
-" thank you based tim pope
 execute pathogen#infect()
 
 " switching between panes easier
@@ -51,30 +56,28 @@ noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 
-" maximum buffer control
-noremap <F2> :buffers<CR>:buffer<Space>
-noremap <Leader>x :bNext<CR>
-noremap <Leader>z :bprevious<CR>
-noremap <Leader><tab> <C-^>
-noremap <Leader>1 :b 1<CR>
-noremap <Leader>2 :b 2<CR>
-noremap <Leader>3 :b 3<CR>
-noremap <Leader>4 :b 4<CR>
-noremap <Leader>5 :b 5<CR>
+" maximum tab control
+noremap <Leader>x :tabnext<CR>
+noremap <Leader>z :tabprevious<CR>
+noremap <Leader>1 :tabm 1<CR>
+noremap <Leader>2 :tabm 2<CR>
+noremap <Leader>3 :tabm 3<CR>
+noremap <Leader>4 :tabm 4<CR>
+noremap <Leader>5 :tabm 5<CR>
+noremap <leader>n :tabnew<CR>
+noremap <leader>q :tabclose<CR>
 
 " vim airline/statusbar
 let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#left_alt_sep = '>'
-
+let g:airline_theme="luna"
 
 " rainbow-parentheses
-" I started using Racket 
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
-" have to edit these colors to match the background
+" todo: edit the colors
 let g:rbpt_colorpairs = [
     \ ['brown',       'RoyalBlue3'],
     \ ['Darkblue',    'SeaGreen3'],
