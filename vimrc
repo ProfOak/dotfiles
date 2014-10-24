@@ -37,6 +37,9 @@ filetype plugin on
 let mapleader=","
 imap jj <esc>
 
+" used for taking notes
+imap vv <esc>I=== <esc>A ===<CR>
+
 " word wrapping on cursor movement
 set whichwrap+=<,>,h,l,[,]
 
