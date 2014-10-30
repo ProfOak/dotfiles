@@ -21,6 +21,8 @@ set laststatus=2
 " tabs for go and make files
 autocmd FileType go set noexpandtab
 autocmd FileType make set noexpandtab
+" comments don't start at the front of a line
+autocmd FileType python setl nosmartindent
 
 " I like Dr Racket's defaults
 autocmd FileType racket set ts=2 sts=2 sw=2
