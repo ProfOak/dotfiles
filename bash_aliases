@@ -42,4 +42,6 @@ alias sxiv="sxiv-helper"
 alias links2="links2 https://duckduckgo.com"
 # vim tabs
 alias vim="vim -p"
-
+alias ga="git add"
+alias gs="git status"
+alias gc="git commit"
