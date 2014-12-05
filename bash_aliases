@@ -19,7 +19,7 @@ function whataremycolorsagain {
 
 export GOROOT=/usr/go
 export GOPATH=$HOME/programming/go/
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:$GOROOT/bin:/usr/mybin/jdk1.8.0/bin:$HOME/programming/real/shellstuff"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:$GOROOT/bin:/usr/mybin/jdk1.8.0/bin:$HOME/programming/real/shellstuff:/usr/racket/bin"
 
 #alias
 
