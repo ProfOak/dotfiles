@@ -9,11 +9,10 @@ A work in progress
 * bash
 * tmux
 * rxvt-unicode (urxvt)
+* conky
 
-Depracated
+Currently Unused
 ---
-
-- conky (for xsetroot - depracated for now)
-- dwm (depracated)
+- dwm
 
 
