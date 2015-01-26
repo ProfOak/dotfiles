@@ -36,15 +36,21 @@ alias ghist="history | grep"
 # loop a song
 alias z="mplayer -loop 0"
 # shuffle music
-alias sm="mplayer -loop 0 -shuffle ~/Music/*3"
 alias puburl="dropbox puburl"
+
 alias gdb="gdb -q"
+
 alias sxiv="sxiv-helper"
+
 alias links2="links2 https://duckduckgo.com"
-# vim tabs
+
 alias vim="vim -p"
+# git stuff
 alias ga="git add"
 alias gs="git status"
 alias gc="git commit"
 alias gl="git log"
 alias gp="git push"
+alias gpo="git push origin master"
+
+alias clipboard="xclip -sel clip <"
