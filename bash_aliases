@@ -19,14 +19,15 @@ function whataremycolorsagain {
 
 export GOROOT=/usr/go
 export GOPATH=$HOME/programming/go/
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:$GOROOT/bin:/usr/mybin/jdk1.8.0/bin:$HOME/programming/real/shellstuff:/usr/racket/bin"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:$GOROOT/bin:$GOPATH/bin:/usr/mybin/jdk1.8.0/bin:$HOME/programming/real/shellstuff:/usr/racket/bin"
+
+# startup stuff
+cmdji
 
 #alias
 
 alias wtf="aptitude search"
-alias wtfw="aptitude search -t wheezy-backports"
 alias omg="sudo apt-get install"
-alias omgw="sudo apt-get install -t wheezy-backports"
 alias l="ls -l --sort=extension --group-directories-first"
 alias lh="ls -lh --sort=extension --group-directories-first"
 alias gps="ps aux | grep"
@@ -45,3 +46,5 @@ alias vim="vim -p"
 alias ga="git add"
 alias gs="git status"
 alias gc="git commit"
+alias gl="git log"
+alias gp="git push"

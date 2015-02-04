@@ -1,0 +1,11 @@
+# keyboard rate
+xset r rate 250 50
+# turn off display power management seignallng
+xset -dpms
+
+# sound settings
+xbindkeys
+
+# wallpaper
+nitrogen --restore
+

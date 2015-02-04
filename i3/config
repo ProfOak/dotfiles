@@ -183,6 +183,6 @@ assign [class="Firefox"] 4: web 
 bindsym $mod+Tab workspace back_and_forth
 
 # startup stuff
-exec_always ~/.startup_script
+exec_always ~/.i3/startup_script
 #exec --no-startup-id nm-applet
 
