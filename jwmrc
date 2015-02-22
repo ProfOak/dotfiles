@@ -1,0 +1,188 @@
+<?xml version="1.0"?>
+
+<JWM>
+
+   <!-- The root menu, if this is undefined you will not get a menu. -->
+   <!-- Additional RootMenu attributes: onroot, labeled, label -->
+   <RootMenu height="15" onroot="12">
+   
+      
+	  <!--
+      <Menu icon="devices/media-cdrom-audio.png" label="Stepmania">
+         <Program label="Stepmania" icon="mimetypes/gnome-mime-audio.png">/usr/StepMania</Program>
+         <Program icon="places/folder.png" label="SM Files">pcmanfm .stepmania-5.0</Program>
+	  </Menu>
+	  -->
+
+      <Separator/>
+      <Program icon="apps/firefox.png" label="firefox">firefox</Program>
+      <Program icon="apps/terminal.png" label="urxvt">urxvt</Program>
+      <Program icon="places/folder.png" label="pcmanfm">pcmanfm</Program>
+      <Program icon="places/folder.png" label="rox-filer">rox-filer -n</Program>
+      <Separator/>
+      <Menu icon="actions/go-next.png" label="apps">
+        <Program icon="apps/firefox.png" label="links2">links2 -g</Program>
+        <Program icon="apps/terminal.png" label="zsnes">zsnes</Program>
+      </Menu>
+
+      <Separator/>
+      <!-- <Include>/etc/jwm/debian-menu</Include> -->
+
+      <Restart label="Restart jwm" icon="restart.png"/>
+      <Separator/>
+	  <Menu icon="actions/application-exit.png" label="Shutdown options">
+         <Exit label="Switch User" confirm="true" icon="quit.png"/>
+         <Program label="Restart">sudo urxvt -e '/sbin/reboot'</Program>
+         <Program label="Shutdown">sudo urxvt -e '/sbin/poweroff'</Program>
+      </Menu>
+   </RootMenu>
+
+
+   <!-- Additional tray attributes: autohide, width, border, layer, layout -->
+   <Tray  x="0" y="-1" height="32" autohide="false">
+
+      <!-- Additional TrayButton attribute: label -->
+      <TrayButton popup="Start Menu" label="Start">root:1</TrayButton>
+	  
+      <TrayButton popup="Show Desktop" icon="places/desktop.png">showdesktop</TrayButton>
+      <TrayButton popup="Run Dialogue" icon="actions/search.png">exec: gmrun</TrayButton>
+	  <TrayButton popup="Terminal" icon="apps/terminal.png">exec: urxvt</TrayButton>
+	  <TrayButton popup="File Manager" icon="places/folder.png">exec: rox-filer -n</TrayButton>
+	  <TrayButton popup="Notepad" icon="apps/text-editor.png">exec: leafpad</TrayButton>
+      <TrayButton popup="Firefox"  icon="apps/firefox.png">exec: firefox</TrayButton>
+
+      <!-- Additional Pager attribute: labeled -->
+      <Pager labeled="true"/>
+
+      <TaskList maxwidth="256"/>
+
+      <Dock/>
+
+      <!-- Additional Swallow attribute: height -->
+      <Swallow name="xload" width="64">
+         xload -nolabel -bg black -fg red -hl white
+      </Swallow>
+
+      <Clock format="%H:%M">xclock</Clock>
+
+   </Tray>
+
+
+<!-- evil cyan glow -->
+
+<WindowStyle>
+<Font antialias="false">smoothansi</Font>
+<Width>4</Width>
+<Height>20</Height>
+<Active>
+<Text>cyan</Text>
+<Title>darkcyan:grey13</Title>
+<Outline>cyan</Outline>
+</Active>
+<Inactive>
+<Text>grey44</Text>
+<Title>grey20:grey0</Title>
+<Outline>darkcyan</Outline>
+</Inactive>
+</WindowStyle>
+
+<TaskListStyle>
+<Font antialias="false">smoothansi</Font>
+<ActiveForeground>cyan</ActiveForeground>
+<ActiveBackground>darkcyan:grey13</ActiveBackground>
+<Foreground>grey44</Foreground>
+<Background>grey20:grey0</Background>
+</TaskListStyle>
+
+<!-- Additional TrayStyle attribute: insert -->
+
+<TrayStyle>
+<Font antialias="false">smoothansi</Font>
+<Background>grey13</Background>
+<Foreground>cyan</Foreground>
+</TrayStyle>
+
+<PagerStyle>
+<Outline>grey66</Outline>
+<Foreground>grey44</Foreground>
+<Background>grey22</Background>
+<ActiveForeground>darkcyan</ActiveForeground>
+<ActiveBackground>grey44</ActiveBackground>
+</PagerStyle>
+
+<MenuStyle>
+<Font antialias="false">smoothansi</Font>
+<Foreground>white</Foreground>
+<Background>grey0</Background>
+<ActiveForeground>cyan</ActiveForeground>
+<ActiveBackground>darkcyan:grey13</ActiveBackground>
+</MenuStyle>
+
+<PopupStyle>
+<Font antialias="false">smoothansi</Font>
+<Outline>grey22</Outline>
+<Foreground>grey0</Foreground>
+<Background>cyan</Background>
+</PopupStyle>
+
+
+   <IconPath>
+      /usr/share/icons/nuoveXT2/32x32/
+   </IconPath>
+
+   <!-- Virtual Desktops -->
+   <!-- Desktop tags can be contained within Desktops for desktop names. -->
+   <Desktops width="2" height="1">
+      <!-- Default background. Note that a Background tag can be
+           contained within a Desktop tag to give a specific background
+           for that desktop.
+       -->
+      <Background type="command">nitrogen --restore</Background>
+   </Desktops>
+
+   <!-- Double click speed (in milliseconds) -->
+   <DoubleClickSpeed>400</DoubleClickSpeed>
+
+   <!-- Double click delta (in pixels) -->
+   <DoubleClickDelta>2</DoubleClickDelta>
+
+   <!-- The focus model (sloppy or click) -->
+   <FocusModel>sloppy</FocusModel>
+
+   <!-- The snap mode (none, screen, or border) -->
+   <SnapMode distance="10">border</SnapMode>
+
+   <!-- The move mode (outline or opaque) -->
+   <MoveMode>opaque</MoveMode>	
+
+   <!-- The resize mode (outline or opaque) -->
+   <ResizeMode>opaque</ResizeMode>
+
+   <StartupCommand>xset r rate 250 50</StartupCommand>
+   <StartupCommand>nitrogen --restore</StartupCommand>
+
+   <!-- Key bindings -->
+   <Key key="Up">up</Key>
+   <Key key="Down">down</Key>
+   <Key key="Right">right</Key>
+   <Key key="Left">left</Key>
+   <Key key="h">left</Key>
+   <Key key="j">down</Key>
+   <Key key="k">up</Key>
+   <Key key="l">right</Key>
+   <Key key="Return">select</Key>
+   <Key key="Escape">escape</Key>
+
+   <Key mask="A" key="Tab">next</Key>
+   <Key mask="A" key="F4">close</Key>
+   <Key mask="A" key="#">desktop#</Key>
+   <Key mask="A" key="F1">root:1</Key>
+   <Key mask="A" key="F2">window</Key>
+   <Key mask="A" key="F10">maximize</Key>
+   <Key mask="A" key="Right">rdesktop</Key>
+   <Key mask="A" key="Left">ldesktop</Key>
+   <Key mask="A" key="Up">udesktop</Key>
+   <Key mask="A" key="Down">ddesktop</Key>
+
+</JWM>
+
