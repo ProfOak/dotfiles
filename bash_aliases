@@ -54,3 +54,5 @@ alias gp="git push"
 alias gpo="git push origin master"
 
 alias clipboard="xclip -sel clip <"
+
+alias gogo="cd $GOPATH"

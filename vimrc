@@ -13,14 +13,16 @@ set autoindent
 set smartindent
 set expandtab
 set showmatch
+set cursorline
 set ts=4
-set sts=4 
+set sts=4
 set sw=4
 set laststatus=2
 
 " tabs for go and make files
 autocmd FileType go set noexpandtab
 autocmd FileType make set noexpandtab
+
 " comments don't start at the front of a line
 autocmd FileType python setl nosmartindent
 
@@ -32,9 +34,8 @@ autocmd FileType racket set ts=2 sts=2 sw=2
 
 set nu
 syntax on
-filetype on 
-filetype plugin on 
-"filetype plugin indent off
+filetype on
+filetype plugin on
 
 let mapleader=","
 imap jj <esc>
@@ -42,18 +43,17 @@ imap jj <esc>
 " used for taking notes
 imap vv <esc>I=== <esc>A ===<CR>
 
+" SingleComlete
+imap <F6> <esc>:w<cr>:SCCompile<cr>
+imap <F5> <esc>:w<cr>:SCCompileRun<cr>
+nmap <F6> :SCCompile<cr>
+nmap <F5> :SCCompileRun<cr>
+
 " word wrapping on cursor movement
 set whichwrap+=<,>,h,l,[,]
 
 " 256 color term
 set t_Co=256
-
-""""""""""""""""""""""""""""
-"       plugins
-"
-""""""""""""""""""""""""""""
-
-execute pathogen#infect()
 
 " switching between panes easier
 noremap <C-l> <C-w>l
@@ -72,6 +72,13 @@ noremap <Leader>5 :tabm 5<CR>
 noremap <leader>n :tabnew<CR>
 noremap <leader>q :tabclose<CR>
 
+
+""""""""""""""""""""""""""""
+"       plugins
+"
+""""""""""""""""""""""""""""
+
+execute pathogen#infect()
 " vim airline/statusbar
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme="luna"
