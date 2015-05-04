@@ -2,7 +2,7 @@
 # Modified idea from this page:  https://wiki.archlinux.org/index.php/Color_Bash_Prompt#From_Arch_Forum_.231
 PS1="\n \[\e[1;37m\]┌─[\[\e[1;36m\] \d \[\e[1;31m\]\T \[\e[1;37m\]] \n\[\e[1;37m\] └─[ \[\e[1;34m\]@ \[\e[1;32m\]\w \[\e[1;37m\]]\[\e[1;35m\]---> \[\e[0;37m\]"
 
-#### 
+####
 # non-unicode
 # PS1="\n \[\e[1;37m\][\[\e[1;36m\] \d \[\e[1;31m\]\T \[\e[1;37m\]] \n\[\e[1;37m\][ \[\e[1;34m\]@ \[\e[1;32m\]\w \[\e[1;37m\]]\[\e[1;35m\]---> \[\e[0;37m\]"
 ####
@@ -56,3 +56,4 @@ alias gpo="git push origin master"
 alias clipboard="xclip -sel clip <"
 
 alias gogo="cd $GOPATH"
+alias mygo="cd $GOPATH/src/github.com/ProfOak"
