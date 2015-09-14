@@ -6,10 +6,8 @@ URxvt.saveLines: 12000
 URxvt.foreground: White
 URxvt.background: Black
 
-#URxvt.font: xft:Ubuntu Mono:pixelsize=14,style=regular
-#URxvt.boldFont: xft: xft:Ubuntu Mono:pixelsize=14,style=regula
-URxvt.font: xft: GohuFont
-URxvt.boldFont: xft: GohuFont
+URxvt.font: xft: terminus:size=20
+URxvt.boldFont: xft: GohuFont:size=20
 URxvt.color4: RoyalBlue
 URxvt.color12: RoyalBlue
 

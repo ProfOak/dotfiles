@@ -21,9 +21,6 @@ export GOROOT=/usr/go
 export GOPATH=$HOME/programming/go/
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:$GOROOT/bin:$GOPATH/bin:/usr/mybin/jdk1.8.0/bin:$HOME/programming/real/shellstuff:/usr/racket/bin"
 
-# startup stuff
-cmdji
-
 #alias
 
 alias wtf="aptitude search"
