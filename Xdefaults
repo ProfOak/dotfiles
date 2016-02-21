@@ -1,13 +1,13 @@
 
 URxvt.tintColor: White
 URxvt.transparent: true
-URxvt.shading: 25 
+URxvt.shading: 25
 URxvt.saveLines: 12000
 URxvt.foreground: White
 URxvt.background: Black
 
-URxvt.font: xft: terminus:size=20
-URxvt.boldFont: xft: GohuFont:size=20
+URxvt.font: xft: Terminus:size=14
+URxvt.boldFont: xft: Terminus:size=14
 URxvt.color4: RoyalBlue
 URxvt.color12: RoyalBlue
 
