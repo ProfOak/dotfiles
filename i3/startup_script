@@ -9,3 +9,4 @@ xbindkeys
 # wallpaper
 nitrogen --restore
 
+xset s off
