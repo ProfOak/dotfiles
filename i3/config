@@ -155,7 +155,7 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 # color blue: 00ddff
 bar {
-        status_command conky
+        status_command $HOME/.i3/conky-i3bar
         position top
         font pango: Terminus, fontAwesome
         colors {
@@ -185,5 +185,4 @@ bindsym $mod+Tab workspace back_and_forth
 
 # startup stuff
 exec_always ~/.i3/startup_script
-#exec --no-startup-id nm-applet
 

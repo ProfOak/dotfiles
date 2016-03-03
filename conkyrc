@@ -10,11 +10,20 @@ short_units yes
 
 override_utf8_locale yes
 
+# mpd > volume > battery > date > time
+
 TEXT
-${color red} $mpd_status: $color$mpd_smart \
- ${exec amixer get Master | grep -oE "[[:digit:]]*%" | head -1} \
-${if_existing /sys/class/power_supply/BAT0/present} ${battery_percent}%\
-${else}  N/A\
-${endif} \
-${time  %m/%d  %I:%M %P}
+[
+    {"full_text": " $mpd_status: $mpd_smart", "color" : "\#66CCCC", "separator": false},
+
+    {"full_text": " ${exec amixer get Master | grep -oE "[[:digit:]]*%" | head -1}",
+        "color": "\#CC6666", "separator": false},
+
+    {"full_text": "${if_existing /sys/class/power_supply/BAT0/present}\
+ ${battery_percent}%${else} N/A${endif}", "color": "\#66CCCC", "separator": false},
+
+    {"full_text": "${time  %m/%d}", "color": "\#CC6666", "separator": false},
+
+    {"full_text": "${time  %I:%M %P}", "color": "\#66CCCC", "separator": false}
+],
 
