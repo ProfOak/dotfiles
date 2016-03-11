@@ -1,4 +1,4 @@
-"todo: edit the colors vim plug plugin manager
+" vim plug plugin manager
 "
 " https://github.com/junegunn/vim-plug
 " :source %
