@@ -1,13 +1,21 @@
-
-" plugins used
-" pathogen
-" vim-airline
-" nerdcommenter
-" nerdtree - Not sure if I'll keep it
-" rainbow-parentheses
-" vim-racket
-" vim-snipmate
+"todo: edit the colors vim plug plugin manager
 "
+" https://github.com/junegunn/vim-plug
+" :source %
+" :PlugInstall
+call plug#begin('~/.vim/plugged')
+
+Plug 'fatih/vim-go'
+Plug 'wlangstroth/vim-racket'
+Plug 'kien/rainbow_parentheses.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'majutsushi/tagbar'
+Plug 'scrooloose/nerdcommenter'
+Plug 'bronson/vim-trailing-whitespace'
+Plug 'itchyny/lightline.vim'
+
+" vim-snipmate
+call plug#end()
 
 set autoindent
 set smartindent
@@ -23,14 +31,8 @@ set laststatus=2
 autocmd FileType go set noexpandtab
 autocmd FileType make set noexpandtab
 
-" comments don't start at the front of a line
-autocmd FileType python setl nosmartindent
-
 " I like Dr Racket's defaults
 autocmd FileType racket set ts=2 sts=2 sw=2
-
-
-"colorscheme base16-default-bright
 
 set nu
 syntax on
@@ -39,15 +41,6 @@ filetype plugin on
 
 let mapleader=","
 imap jj <esc>
-
-" used for taking notes
-imap vv <esc>I=== <esc>A ===<CR>
-
-" SingleComlete
-imap <F6> <esc>:w<cr>:SCCompile<cr>
-imap <F5> <esc>:w<cr>:SCCompileRun<cr>
-nmap <F6> :SCCompile<cr>
-nmap <F5> :SCCompileRun<cr>
 
 " word wrapping on cursor movement
 set whichwrap+=<,>,h,l,[,]
@@ -78,10 +71,9 @@ noremap <leader>q :tabclose<CR>
 "
 """"""""""""""""""""""""""""
 
-execute pathogen#infect()
-" vim airline/statusbar
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme="luna"
+" vim-lightline
+let g:lightline = {}
+let g:lightline.colorscheme = 'wombat'
 
 " rainbow-parentheses
 au VimEnter * RainbowParenthesesToggle
@@ -89,7 +81,7 @@ au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
-" todo: edit the colors
+" rainbow-parentheses color definitions
 let g:rbpt_colorpairs = [
     \ ['brown',       'RoyalBlue3'],
     \ ['Darkblue',    'SeaGreen3'],
@@ -107,4 +99,13 @@ let g:rbpt_colorpairs = [
     \ ['darkred',     'DarkOrchid3'],
     \ ['red',         'firebrick3'],
     \ ]
+
+" Tagbar
+nmap <F8> :TagbarToggle<CR>
+
+" SingleCompile
+imap <F6> <esc>:w<cr>:SCCompile<cr>
+imap <F5> <esc>:w<cr>:SCCompileRun<cr>
+nmap <F6> :SCCompile<cr>
+nmap <F5> :SCCompileRun<cr>
 
