@@ -13,6 +13,8 @@ Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdcommenter'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'itchyny/lightline.vim'
+"Plug 'Shougo/neocomplete.vim'
+Plug 'valloric/youcompleteme'
 
 " vim-snipmate
 call plug#end()
@@ -108,4 +110,5 @@ imap <F6> <esc>:w<cr>:SCCompile<cr>
 imap <F5> <esc>:w<cr>:SCCompileRun<cr>
 nmap <F6> :SCCompile<cr>
 nmap <F5> :SCCompileRun<cr>
+
 
