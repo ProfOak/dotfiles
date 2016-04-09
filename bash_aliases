@@ -48,6 +48,7 @@ alias gs="git status"
 alias gc="git commit"
 alias gl="git log"
 alias gp="git push"
+alias gd="git diff"
 alias gpo="git push origin master"
 
 alias clipboard="xclip -sel clip <"
