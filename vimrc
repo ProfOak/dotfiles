@@ -1,8 +1,7 @@
+
 " vim plug plugin manager
-"
 " https://github.com/junegunn/vim-plug
-" :source %
-" :PlugInstall
+
 call plug#begin('~/.vim/plugged')
 
 Plug 'fatih/vim-go'
@@ -12,12 +11,22 @@ Plug 'tpope/vim-fugitive'
 Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdcommenter'
 Plug 'bronson/vim-trailing-whitespace'
-Plug 'itchyny/lightline.vim'
-"Plug 'Shougo/neocomplete.vim'
 Plug 'valloric/youcompleteme'
+Plug 'scrooloose/nerdtree'
+Plug 'xuhdev/SingleCompile'
 
-" vim-snipmate
 call plug#end()
+
+" this is my 'theme'
+" tab bar colors
+hi TabLine     ctermfg=White ctermbg=none cterm=none
+hi TabLineSel  ctermfg=Red   ctermbg=none cterm=none
+hi TabLineFill ctermfg=none  ctermbg=none cterm=none
+
+" status bar
+hi statusline ctermfg=Red ctermbg=none cterm=none
+set laststatus=2
+set statusline=%<%f\ %h%M%r%=%-14.(%l,%c%V%)\ %p%%
 
 set autoindent
 set smartindent
@@ -27,13 +36,12 @@ set cursorline
 set ts=4
 set sts=4
 set sw=4
-set laststatus=2
 
 " tabs for go and make files
 autocmd FileType go set noexpandtab
 autocmd FileType make set noexpandtab
 
-" I like Dr Racket's defaults
+" Dr Racket's defaults
 autocmd FileType racket set ts=2 sts=2 sw=2
 
 set nu
@@ -56,14 +64,9 @@ noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 
-" maximum tab control
+" tab control
 noremap <Leader>x :tabnext<CR>
 noremap <Leader>z :tabprevious<CR>
-noremap <Leader>1 :tabm 1<CR>
-noremap <Leader>2 :tabm 2<CR>
-noremap <Leader>3 :tabm 3<CR>
-noremap <Leader>4 :tabm 4<CR>
-noremap <Leader>5 :tabm 5<CR>
 noremap <leader>n :tabnew<CR>
 noremap <leader>q :tabclose<CR>
 
@@ -73,9 +76,6 @@ noremap <leader>q :tabclose<CR>
 "
 """"""""""""""""""""""""""""
 
-" vim-lightline
-let g:lightline = {}
-let g:lightline.colorscheme = 'wombat'
 
 " rainbow-parentheses
 au VimEnter * RainbowParenthesesToggle
@@ -111,4 +111,7 @@ imap <F5> <esc>:w<cr>:SCCompileRun<cr>
 nmap <F6> :SCCompile<cr>
 nmap <F5> :SCCompileRun<cr>
 
+" ycm
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
 
