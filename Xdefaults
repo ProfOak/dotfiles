@@ -3,13 +3,9 @@ URxvt.tintColor: White
 URxvt.transparent: true
 URxvt.shading: 15
 URxvt.saveLines: 12000
-URxvt.foreground: White
-URxvt.background: Black
 
 URxvt.font: xft: Terminus:size=14
 URxvt.boldFont: xft: Terminus:size=14
-URxvt.color4: RoyalBlue
-URxvt.color12: RoyalBlue
 
 URxvt.scrollBar: false
 URxvt.visualBell: true
@@ -20,7 +16,7 @@ URxvt.visualBell: true
 *.cursorColor:  #ffffff
 
 ! black
-*.color0:       #666666
+*.color0:       #000000
 *.color8:       #999999
 
 ! red

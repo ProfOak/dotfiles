@@ -19,9 +19,13 @@ function whataremycolorsagain {
 
 export GOROOT=/usr/go
 export GOPATH=$HOME/programming/go/
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:$GOROOT/bin:$GOPATH/bin:/usr/mybin/jdk1.8.0/bin:$HOME/programming/real/shellstuff:/usr/racket/bin"
 
-#alias
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games"  # defaults
+export PATH="$PATH:$GOROOT/bin:$GOPATH/bin" # go stuff
+export PATH="$PATH:/usr/mybin/jdk1.8.0/bin" # java
+export PATH="$PATH:$HOME/programming/bin"
+
+# ===== alias =====
 
 alias wtf="aptitude search"
 alias omg="sudo apt-get install"
@@ -36,12 +40,14 @@ alias z="mplayer -loop 0"
 alias puburl="dropbox puburl"
 
 alias gdb="gdb -q"
+alias vim="vim -p"
+alias ed="ed -p \"> \""
 
 alias sxiv="sxiv-helper"
 
 alias links2="links2 https://duckduckgo.com"
 
-alias vim="vim -p"
+
 # git stuff
 alias ga="git add"
 alias gs="git status"
