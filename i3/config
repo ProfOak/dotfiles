@@ -89,28 +89,28 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # switch to workspace
-bindsym $mod+1 workspace 1: work 
-bindsym $mod+2 workspace 2: chat 
-bindsym $mod+3 workspace 3: music 
-bindsym $mod+4 workspace 4: web 
-bindsym $mod+5 workspace 5: e
-bindsym $mod+6 workspace 6: x
-bindsym $mod+7 workspace 7: t
-bindsym $mod+8 workspace 8: r
-bindsym $mod+9 workspace 9: a
-bindsym $mod+0 workspace 10
+bindsym $mod+1 workspace 1:work 
+bindsym $mod+2 workspace 2:chat 
+bindsym $mod+3 workspace 3:music 
+bindsym $mod+4 workspace 4:web 
+bindsym $mod+5 workspace 5:e
+bindsym $mod+6 workspace 6:x
+bindsym $mod+7 workspace 7:t
+bindsym $mod+8 workspace 8:r
+bindsym $mod+9 workspace 9:a
+bindsym $mod+0 workspace 10:!
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1: work 
-bindsym $mod+Shift+2 move container to workspace 2: chat 
-bindsym $mod+Shift+3 move container to workspace 3: music 
-bindsym $mod+Shift+4 move container to workspace 4: web 
-bindsym $mod+Shift+5 move container to workspace 5: e
-bindsym $mod+Shift+6 move container to workspace 6: x
-bindsym $mod+Shift+7 move container to workspace 7: t
-bindsym $mod+Shift+8 move container to workspace 8: r
-bindsym $mod+Shift+9 move container to workspace 9: a
-bindsym $mod+Shift+0 move container to workspace 10
+bindsym $mod+Shift+1 move container to workspace 1:work 
+bindsym $mod+Shift+2 move container to workspace 2:chat 
+bindsym $mod+Shift+3 move container to workspace 3:music 
+bindsym $mod+Shift+4 move container to workspace 4:web 
+bindsym $mod+Shift+5 move container to workspace 5:e
+bindsym $mod+Shift+6 move container to workspace 6:x
+bindsym $mod+Shift+7 move container to workspace 7:t
+bindsym $mod+Shift+8 move container to workspace 8:r
+bindsym $mod+Shift+9 move container to workspace 9:a
+bindsym $mod+Shift+0 move container to workspace 10:!
 
 # titlebar colors
 client.focused          #000000 #000000 #ffffff #ffffff
@@ -157,6 +157,7 @@ bindsym $mod+r mode "resize"
 bar {
         status_command $HOME/.i3/conky-i3bar
         position top
+        strip_workspace_numbers yes
         font pango: Terminus, fontAwesome
         colors {
             background #000000

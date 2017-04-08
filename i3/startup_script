@@ -2,6 +2,7 @@
 xset r rate 250 50
 # turn off display power management seignallng
 xset -dpms
+xset s off
 
 # sound settings
 xbindkeys
@@ -9,4 +10,3 @@ xbindkeys
 # wallpaper
 nitrogen --restore
 
-xset s off
