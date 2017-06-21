@@ -58,6 +58,14 @@ set whichwrap+=<,>,h,l,[,]
 " 256 color term
 set t_Co=256
 
+" spell check
+set spell spelllang=en_us
+hi clear SpellBad
+hi clear SpellCap
+hi clear SpellLocal
+hi clear SpellRare
+hi SpellBad cterm=underline ctermfg=red
+
 " switching between panes easier
 noremap <C-l> <C-w>l
 noremap <C-h> <C-w>h
