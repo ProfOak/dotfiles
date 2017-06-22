@@ -7,12 +7,10 @@ call plug#begin('~/.vim/plugged')
 Plug 'fatih/vim-go'
 Plug 'wlangstroth/vim-racket'
 Plug 'kien/rainbow_parentheses.vim'
-Plug 'tpope/vim-fugitive'
 Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdcommenter'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'valloric/youcompleteme'
-Plug 'scrooloose/nerdtree'
 Plug 'xuhdev/SingleCompile'
 
 call plug#end()
@@ -57,6 +55,8 @@ set whichwrap+=<,>,h,l,[,]
 
 " 256 color term
 set t_Co=256
+
+set cc=100
 
 " spell check
 set spell spelllang=en_us
