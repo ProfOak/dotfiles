@@ -179,7 +179,7 @@ for_window [class="Pidgin"] floating enable
 for_window [class="Rox"] floating enable
 
 #firefox to window 4
-assign [class="Firefox"] 4: web 
+assign [class="Firefox"] 4:web 
 
 # dwm-like tab switching
 bindsym $mod+Tab workspace back_and_forth
