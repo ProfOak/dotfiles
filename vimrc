@@ -2,6 +2,20 @@
 " vim plug plugin manager
 " https://github.com/junegunn/vim-plug
 
+let vimplug_exists=expand('~/.vim/autoload/plug.vim')
+
+if !filereadable(vimplug_exists)
+  if !executable("curl")
+    echoerr "Install curl"
+    execute "q!"
+  endif
+  echo "Automagically installing junegunn/vim-plug"
+  echo ""
+  silent !\curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+  autocmd VimEnter * PlugInstall
+endif
+
 call plug#begin('~/.vim/plugged')
 
 Plug 'fatih/vim-go'
