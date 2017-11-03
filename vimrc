@@ -18,14 +18,14 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'fatih/vim-go'
-Plug 'wlangstroth/vim-racket'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdcommenter'
 Plug 'bronson/vim-trailing-whitespace'
-Plug 'valloric/youcompleteme'
 Plug 'xuhdev/SingleCompile'
+Plug 'Valloric/YouCompleteMe'
+Plug 'flazz/vim-colorschemes'
+Plug 'fatih/vim-go'
 
 call plug#end()
 
@@ -39,6 +39,7 @@ hi TabLineFill ctermfg=none  ctermbg=none cterm=none
 hi statusline ctermfg=Red ctermbg=none cterm=none
 set laststatus=2
 set statusline=%<%f\ %h%M%r%=%-14.(%l,%c%V%)\ %p%%
+set cc=80
 
 set autoindent
 set smartindent
@@ -48,6 +49,10 @@ set cursorline
 set ts=4
 set sts=4
 set sw=4
+set splitbelow
+set splitright
+
+colorscheme monokain
 
 " tabs for go and make files
 autocmd FileType go set noexpandtab
@@ -56,6 +61,9 @@ autocmd FileType make set noexpandtab
 " Dr Racket's defaults
 autocmd FileType racket set ts=2 sts=2 sw=2
 
+" please don't put comments at the start of the line for python
+au! FileType python setl nosmartindent
+
 set nu
 syntax on
 filetype on
@@ -63,14 +71,8 @@ filetype plugin on
 
 let mapleader=","
 imap jj <esc>
-
-" word wrapping on cursor movement
-set whichwrap+=<,>,h,l,[,]
-
-" 256 color term
-set t_Co=256
-
-set cc=100
+imap <Leader>p import pdb; pdb.set_trace()<enter><esc>
+noremap <Leader>p oimport pdb; pdb.set_trace()<esc>
 
 " spell check
 set spell spelllang=en_us
@@ -80,6 +82,12 @@ hi clear SpellLocal
 hi clear SpellRare
 hi SpellBad cterm=underline ctermfg=red
 
+" word wrapping on cursor movement
+set whichwrap+=<,>,h,l,[,]
+
+" 256 color term
+set t_Co=256
+
 " switching between panes easier
 noremap <C-l> <C-w>l
 noremap <C-h> <C-w>h
@@ -87,8 +95,8 @@ noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 
 " tab control
-noremap <Leader>x :tabnext<CR>
-noremap <Leader>z :tabprevious<CR>
+noremap <leader>x :tabnext<CR>
+noremap <leader>z :tabprevious<CR>
 noremap <leader>n :tabnew<CR>
 noremap <leader>q :tabclose<CR>
 
@@ -136,4 +144,3 @@ nmap <F5> :SCCompileRun<cr>
 " ycm
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
-
