@@ -1,5 +1,5 @@
 
-# Modified idea from this page:  https://wiki.archlinux.org/index.php/Color_Bash_Prompt#From_Arch_Forum_.231
+# Modified from this page:  https://wiki.archlinux.org/index.php/Color_Bash_Prompt#From_Arch_Forum_.231
 PS1="\n \[\e[1;37m\]┌─[\[\e[1;36m\] \d \[\e[1;31m\]\T \[\e[1;37m\]] \n\[\e[1;37m\] └─[ \[\e[1;34m\]@ \[\e[1;32m\]\w \[\e[1;37m\]]\[\e[1;35m\]---> \[\e[0;37m\]"
 
 ####
@@ -20,10 +20,9 @@ function whataremycolorsagain {
 export GOROOT=/usr/go
 export GOPATH=$HOME/programming/go/
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games"  # defaults
 export PATH="$PATH:$GOROOT/bin:$GOPATH/bin" # go stuff
-export PATH="$PATH:/usr/mybin/jdk1.8.0/bin" # java
-export PATH="$PATH:$HOME/programming/bin"
+export PATH="$PATH:/usr/mybin/jdk1.8.0/bin" # java stuff
+export PATH="$PATH:$HOME/programming/bin"   # personal stuff
 
 # ===== alias =====
 
@@ -36,17 +35,11 @@ alias ghist="history | grep"
 
 # loop a song
 alias z="mplayer -loop 0"
-# shuffle music
-alias puburl="dropbox puburl"
 
 alias gdb="gdb -q"
 alias vim="vim -p"
-alias ed="ed -p \"> \""
-
-alias sxiv="sxiv-helper"
 
 alias links2="links2 https://duckduckgo.com"
-
 
 # git stuff
 alias ga="git add"
@@ -61,3 +54,4 @@ alias clipboard="xclip -sel clip <"
 
 alias gogo="cd $GOPATH"
 alias mygo="cd $GOPATH/src/github.com/ProfOak"
+alias mkvirtualenv3='mkvirtualenv --python=/usr/bin/python3'

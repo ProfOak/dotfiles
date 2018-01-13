@@ -60,6 +60,7 @@ autocmd FileType make set noexpandtab
 
 " Dr Racket's defaults
 autocmd FileType racket set ts=2 sts=2 sw=2
+autocmd FileType html set ts=2 sts=2 sw=2
 
 " please don't put comments at the start of the line for python
 au! FileType python setl nosmartindent
@@ -86,7 +87,7 @@ hi SpellBad cterm=underline ctermfg=red
 set whichwrap+=<,>,h,l,[,]
 
 " 256 color term
-set t_Co=256
+"set t_Co=256
 
 " switching between panes easier
 noremap <C-l> <C-w>l
