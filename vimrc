@@ -26,6 +26,7 @@ Plug 'xuhdev/SingleCompile'
 Plug 'Valloric/YouCompleteMe'
 Plug 'flazz/vim-colorschemes'
 Plug 'fatih/vim-go'
+Plug 'easymotion/vim-easymotion'
 
 call plug#end()
 
@@ -51,6 +52,7 @@ set sts=4
 set sw=4
 set splitbelow
 set splitright
+set showcmd
 
 colorscheme monokain
 
