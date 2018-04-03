@@ -1,7 +1,6 @@
 
-" vim plug plugin manager
+" automagically install a vim plug plugin manager
 " https://github.com/junegunn/vim-plug
-
 let vimplug_exists=expand('~/.vim/autoload/plug.vim')
 
 if !filereadable(vimplug_exists)
@@ -9,25 +8,23 @@ if !filereadable(vimplug_exists)
     echoerr "Install curl"
     execute "q!"
   endif
-  echo "Automagically installing junegunn/vim-plug"
+  echo "Installing junegunn/vim-plug"
   echo ""
   silent !\curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
   autocmd VimEnter * PlugInstall
 endif
 
+" Install all the plugins
 call plug#begin('~/.vim/plugged')
-
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdcommenter'
-Plug 'bronson/vim-trailing-whitespace'
+Plug 'ntpeters/vim-better-whitespace'
 Plug 'xuhdev/SingleCompile'
 Plug 'Valloric/YouCompleteMe'
 Plug 'flazz/vim-colorschemes'
 Plug 'fatih/vim-go'
 Plug 'easymotion/vim-easymotion'
-
 call plug#end()
 
 " this is my 'theme'
@@ -40,6 +37,7 @@ hi TabLineFill ctermfg=none  ctermbg=none cterm=none
 hi statusline ctermfg=Red ctermbg=none cterm=none
 set laststatus=2
 set statusline=%<%f\ %h%M%r%=%-14.(%l,%c%V%)\ %p%%
+
 set cc=80
 
 set autoindent
@@ -54,7 +52,15 @@ set splitbelow
 set splitright
 set showcmd
 
+" display the paste information in the status line
+nnoremap <F2> :set invpaste paste?<CR>
+" :set paste/nopaste toggle
+set pastetoggle=<F2>
+
 colorscheme monokain
+
+au BufRead,BufNewFile *.csv,*.tsv, set filetype=csv
+autocmd FileType csv set noexpandtab
 
 " tabs for go and make files
 autocmd FileType go set noexpandtab
@@ -89,7 +95,7 @@ hi SpellBad cterm=underline ctermfg=red
 set whichwrap+=<,>,h,l,[,]
 
 " 256 color term
-"set t_Co=256
+set t_Co=256
 
 " switching between panes easier
 noremap <C-l> <C-w>l
@@ -104,11 +110,14 @@ noremap <leader>n :tabnew<CR>
 noremap <leader>q :tabclose<CR>
 
 
-""""""""""""""""""""""""""""
-"       plugins
-"
-""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""
+"          plugins          "
+"""""""""""""""""""""""""""""
 
+" vim-better-whitespace
+let g:better_whitespace_enabled=1
+let g:strip_whitespace_on_save=1
+highlight ExtraWhitespace ctermbg=blue
 
 " rainbow-parentheses
 au VimEnter * RainbowParenthesesToggle
