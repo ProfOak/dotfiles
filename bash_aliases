@@ -95,7 +95,7 @@ startover() {
     fi
 }
 
-imp()
+imp() {
     if [ -z "$2" ]; then
         python -c "import $1; print $1"
     else
