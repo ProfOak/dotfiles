@@ -25,6 +25,8 @@ Plug 'Valloric/YouCompleteMe'
 Plug 'flazz/vim-colorschemes'
 Plug 'fatih/vim-go'
 Plug 'easymotion/vim-easymotion'
+Plug 'Vimjas/vim-python-pep8-indent'
+Plug 'w0rp/ale'
 call plug#end()
 
 " this is my 'theme'
@@ -156,3 +158,14 @@ nmap <F5> :SCCompileRun<cr>
 " ycm
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
+
+" ale
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s'
+let g:ale_fixers = {
+\   'python': [
+\       'isort',
+\   ],
+\}
+let g:ale_fix_on_save = 1
