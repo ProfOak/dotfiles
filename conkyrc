@@ -14,16 +14,20 @@ override_utf8_locale yes
 
 TEXT
 [
-    {"full_text": " $mpd_status: $mpd_smart", "color" : "\#66CCCC", "separator": false},
+{"full_text": " $mpd_status: $mpd_smart", "color" : "\#66CCCC", "separator": false},
 
-    {"full_text": " ${exec amixer get Master | grep -oE "[[:digit:]]*%" | head -1}",
-        "color": "\#CC6666", "separator": false},
+{"full_text": " ${exec amixer get Master | grep -oE "[[:digit:]]*%" | head -1}",
+    "color": "\#CC6666", "separator": false},
 
-    {"full_text": "${if_existing /sys/class/power_supply/BAT0/present}\
- ${battery_percent}%${else} N/A${endif}", "color": "\#66CCCC", "separator": false},
+{"full_text": "\
+${if_existing /sys/class/power_supply/BAT0/present}\
+ ${battery_percent}% ${battery_time}\
+${else}\
+ N/A$\
+{endif}", "color": "\#66CCCC", "separator": false},
 
-    {"full_text": "${time  %m/%d}", "color": "\#CC6666", "separator": false},
+{"full_text": "${time  %m/%d}", "color": "\#CC6666", "separator": false},
 
-    {"full_text": "${time  %I:%M %P}", "color": "\#66CCCC", "separator": false}
+{"full_text": "${time  %I:%M %P}", "color": "\#66CCCC", "separator": false}
 ],
 

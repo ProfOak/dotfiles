@@ -1,16 +1,17 @@
-
 URxvt.tintColor: White
 URxvt.transparent: true
 URxvt.shading: 15
 
 URxvt.saveLines: 12000
 
-URxvt.font: xft: Terminus:size=14
-URxvt.boldFont: xft: Terminus:size=14
+URxvt.font: xft: Hack:size=16
+URxvt.boldFont: xft: Hack:size=16
 
 URxvt.scrollBar: false
 URxvt.visualBell: false
-URxvt.cutchars: BACKSLASH '"&()*,.;<=>?@[]^{|}
+URxvt.cutchars: BACKSLASH '"&()*,;:<=>?@[]^{|}
+
+URxvt.perl-ext-common: tabbed,resize-font
 
 !special
 URxvt.foreground:   #ffffff

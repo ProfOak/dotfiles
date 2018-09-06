@@ -1,0 +1,14 @@
+"i3lock -c 440000"
+  control+alt+q
+
+"amixer set 'Master' 2%+"
+  Alt + bracketright
+
+"amixer set 'Master' 2%-"
+  Alt + bracketleft
+
+"amixer set 'Master' toggle"
+  Alt + BackSpace
+
+"import png:- | xclip -selection c -t image/png"
+  Print

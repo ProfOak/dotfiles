@@ -1,10 +1,10 @@
 # Modified from this page:  https://wiki.archlinux.org/index.php/Color_Bash_Prompt#From_Arch_Forum_.231
-PS1="\n \[\e[1;37m\]┌─[\[\e[1;36m\] \d \[\e[1;31m\]\T \[\e[1;37m\]] \n\[\e[1;37m\] └─[ \[\e[1;34m\]@ \[\e[1;32m\]\w \[\e[1;37m\]]\[\e[1;35m\]---> \[\e[0;37m\]"
+PS1='\n \[\e[1;37m\]┌─[\[\e[1;36m\] \d \[\e[1;31m\]\T \[\e[1;37m\]] [\[\e[1;36m\] \h \[\e[1;37m\]] \n\[\e[1;37m\] └─[ \[\e[1;34m\]@ \[\e[1;32m\]\w \[\e[1;37m\]]\[\e[1;35m\]---> \[\e[0;37m\]'
 
-####
+####################
 # non-unicode
 # PS1="\n \[\e[1;37m\][\[\e[1;36m\] \d \[\e[1;31m\]\T \[\e[1;37m\]] \n\[\e[1;37m\][ \[\e[1;34m\]@ \[\e[1;32m\]\w \[\e[1;37m\]]\[\e[1;35m\]---> \[\e[0;37m\]"
-####
+####################
 
 #EDITOR=ed
 EDITOR=vim
@@ -39,13 +39,20 @@ alias gc="git commit"
 alias gl="git log"
 alias gp="git push"
 alias gd="git diff"
+alias gb="git branch"
 alias gpo="git push origin master"
 
+alias mkvirtualenv3='mkvirtualenv --python=/usr/bin/python3'
+
+# example: clipboard file.txt
 alias clipboard="xclip -sel clip <"
 
 alias gogo="cd $GOPATH"
 alias mygo="cd $GOPATH/src/github.com/ProfOak"
 alias mkvirtualenv3='mkvirtualenv --python=/usr/bin/python3'
+
+alias wo='workon $(basename `pwd`)'
+alias music='mpv --loop=inf --no-video --ytdl-format="bestvideo[vcodec!=vp9]+bestaudio/best"'
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
@@ -62,6 +69,19 @@ pj() {
     cat $1 | python -m json.tool | less
 }
 
+ale() {
+    if [[ -z "$VIRTUAL_ENV" ]]; then
+        echo "No virtualenv set, exiting"
+        return 1
+    fi
+
+    # pylint  - syntax checking
+    # isort   - auto sort imports according to pep8
+    # vulture - find potentially dead code
+    # flake8  - pep8 checker
+    pip install pylint isort vulture flake8
+}
+
 va() {
     local regex_query="$1"
     local directory="$2"
@@ -76,10 +96,9 @@ startover() {
         deactivate
     fi
 
-    venv=$(basename `pwd`)
+    local venv=$(basename `pwd`)
     rmvirtualenv "$venv"
     mkvirtualenv "$venv"
-    echo $?
 
     if [ -e requirements.txt ]; then
         pip install -r requirements.txt
@@ -95,24 +114,18 @@ startover() {
     fi
 }
 
+cry() {
+    ssh-add -l > /dev/null 2>&1
+    if [[ $? -eq 1 ]]; then
+        eval "$(ssh-agent)" > /dev/null 2>&1
+        ssh-add -K > /dev/null 2>&1
+    fi
+}
+
 imp() {
     if [ -z "$2" ]; then
         python -c "import $1; print $1"
     else
         python -c "from $1 import $2; print $2"
     fi
-}
-
-
-ale() {
-    if [[ -z "$VIRTUAL_ENV" ]]; then
-        echo "No virtualenv set, exiting"
-        return 1
-    fi
-
-    # pylint  - syntax checking
-    # isort   - auto sort imports according to pep8
-    # vulture - find potentially dead code
-    # flake8  - pep8 checker
-    pip install pylint isort vulture flake8
 }

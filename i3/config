@@ -26,7 +26,7 @@ font pango: Terminus, FontAwesome
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvt -e tmux attach
+bindsym $mod+Return exec urxvt
 
 # kill focused window
 bindsym $mod+Shift+c kill
@@ -90,8 +90,8 @@ bindsym $mod+a focus parent
 
 # switch to workspace
 bindsym $mod+1 workspace 1:work 
-bindsym $mod+2 workspace 2:chat 
-bindsym $mod+3 workspace 3:music 
+bindsym $mod+2 workspace 2:chat 
+bindsym $mod+3 workspace 3:mail 
 bindsym $mod+4 workspace 4:web 
 bindsym $mod+5 workspace 5:e
 bindsym $mod+6 workspace 6:x
@@ -101,9 +101,11 @@ bindsym $mod+9 workspace 9:a
 bindsym $mod+0 workspace 10:!
 
 # move focused container to workspace
+#
+#
 bindsym $mod+Shift+1 move container to workspace 1:work 
-bindsym $mod+Shift+2 move container to workspace 2:chat 
-bindsym $mod+Shift+3 move container to workspace 3:music 
+bindsym $mod+Shift+2 move container to workspace 2:chat 
+bindsym $mod+Shift+3 move container to workspace 3:mail 
 bindsym $mod+Shift+4 move container to workspace 4:web 
 bindsym $mod+Shift+5 move container to workspace 5:e
 bindsym $mod+Shift+6 move container to workspace 6:x
@@ -180,10 +182,16 @@ for_window [class="Rox"] floating enable
 
 #firefox to window 4
 assign [class="Firefox"] 4:web 
+assign [class="Thunderbird"] 3:mail 
+assign [class="Slack"] 2:chat 
 
 # dwm-like tab switching
 bindsym $mod+Tab workspace back_and_forth
 
 # startup stuff
 exec_always ~/.i3/startup_script
-
+exec --no-startup-id urxvt
+exec --no-startup-id nm-applet
+exec --no-startup-id slack
+exec --no-startup-id thunderbird
+exec --no-startup-id firefox

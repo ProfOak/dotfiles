@@ -1,12 +1,19 @@
 # keyboard rate
 xset r rate 250 50
-# turn off display power management seignallng
+
+# turn off display power management signalling
 xset -dpms
 xset s off
 
-# sound settings
 xbindkeys
 
 # wallpaper
 nitrogen --restore
 
+xinput set-prop 11 'libinput Tapping Enabled' 1
+xinput set-prop 11 'libinput Tapping Enabled Default' 1
+
+redshift -O 3000 -r
+
+# custom udev script
+auto-monitors
