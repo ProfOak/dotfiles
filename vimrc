@@ -68,6 +68,9 @@ autocmd FileType csv set noexpandtab
 autocmd FileType go set noexpandtab
 autocmd FileType make set noexpandtab
 
+" Go does CamelCase instead of underscore, so identifiers often get marked as mistakes.
+autocmd FileType go set nospell
+
 " Dr Racket's defaults
 autocmd FileType racket set ts=2 sts=2 sw=2
 autocmd FileType html set ts=2 sts=2 sw=2
