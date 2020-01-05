@@ -17,11 +17,12 @@ export PATH="$PATH:$HOME/programming/bin"   # personal stuff
 
 # ===== aliases =====
 
-alias wtf="aptitude search"
-alias omg="sudo apt-get install"
-alias l="ls -l --sort=extension --group-directories-first"
-alias lh="ls -lh --sort=extension --group-directories-first"
-alias gps="ps aux | grep"
+alias wtf="pacman --color=always -Ss"
+alias omg="sudo pacman -S"
+alias ls="ls --color=always --sort=extension --group-directories-first"
+alias l="ls -l"
+alias lh="ls -lh"
+alias gps="ps aux --sort rss | grep"
 alias ghist="history | grep"
 
 # loop a song

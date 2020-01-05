@@ -7,6 +7,12 @@
 "amixer set 'Master' 2%-"
   Alt + bracketleft
 
+"amixer set 'Master' 2%+"
+  XF86AudioRaiseVolume
+
+"amixer set 'Master' 2%-"
+  XF86AudioLowerVolume
+
 "amixer set 'Master' toggle"
   Alt + BackSpace
 

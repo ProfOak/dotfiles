@@ -26,7 +26,7 @@ font pango: Terminus, FontAwesome
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec terminator
 
 # kill focused window
 bindsym $mod+Shift+c kill
@@ -101,8 +101,6 @@ bindsym $mod+9 workspace 9:a
 bindsym $mod+0 workspace 10:!
 
 # move focused container to workspace
-#
-#
 bindsym $mod+Shift+1 move container to workspace 1:work 
 bindsym $mod+Shift+2 move container to workspace 2:chat 
 bindsym $mod+Shift+3 move container to workspace 3:mail 
@@ -160,7 +158,7 @@ bar {
         status_command $HOME/.i3/conky-i3bar
         position top
         strip_workspace_numbers yes
-        font pango: Terminus, fontAwesome
+        font pango: Terminus, FontAwesome
         colors {
             background #000000
             statusline #ffffff
@@ -168,30 +166,27 @@ bar {
             inactive_workspace #000000 #000000 #909090
             urgent_workspace   #000000 #000000 #ff0000
         }
-
 }
-
-# custom stuffs
 
 # toggle back and forth workspaces by pressing one of their numbers
 workspace_auto_back_and_forth yes
 
-# use xprop to find class names
+# use `xprop` to find class names
 for_window [class="Pidgin"] floating enable
 for_window [class="Rox"] floating enable
 
-#firefox to window 4
-assign [class="Firefox"] 4:web 
-assign [class="Thunderbird"] 3:mail 
 assign [class="Slack"] 2:chat 
+assign [class="Thunderbird"] 3:mail 
+assign [class="Firefox"] 4:web 
 
 # dwm-like tab switching
 bindsym $mod+Tab workspace back_and_forth
 
 # startup stuff
 exec_always ~/.i3/startup_script
-exec --no-startup-id urxvt
-exec --no-startup-id nm-applet
-exec --no-startup-id slack
-exec --no-startup-id thunderbird
-exec --no-startup-id firefox
+#exec --no-startup-id urxvt
+#exec --no-startup-id nm-applet
+exec --no-startup-id "terminator"
+exec --no-startup-id "slack"
+exec --no-startup-id "thunderbird"
+exec --no-startup-id "firefox"

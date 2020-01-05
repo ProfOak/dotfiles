@@ -5,6 +5,14 @@ xset r rate 250 50
 xset -dpms
 xset s off
 
+compton \
+    -bCG \
+    --no-fading-openclose \
+    --no-fading-destroyed-argb \
+    --fade-in-step=1 \
+    --fade-out-step=1 \
+    --fade-delta=0
+
 xbindkeys
 
 # wallpaper
@@ -13,6 +21,7 @@ nitrogen --restore
 xinput set-prop 11 'libinput Tapping Enabled' 1
 xinput set-prop 11 'libinput Tapping Enabled Default' 1
 
+redshift -x
 redshift -O 3000 -r
 
 # custom udev script
