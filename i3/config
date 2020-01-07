@@ -174,10 +174,22 @@ workspace_auto_back_and_forth yes
 # use `xprop` to find class names
 for_window [class="Pidgin"] floating enable
 for_window [class="Rox"] floating enable
+for_window [class="Gnome-calculator"] floating enable
 
 assign [class="Slack"] 2:chat 
 assign [class="Thunderbird"] 3:mail 
 assign [class="Firefox"] 4:web 
+
+# workspace "1:work " output DP-1
+# workspace "2:chat " output eDP-1
+# workspace "3:mail " output DP-1
+# workspace "4:web " output DP-1
+# workspace "e" output DP-1
+# workspace "x" output DP-1
+# workspace "t" output DP-1
+# workspace "r" output DP-1
+# workspace "a" output DP-1
+# workspace "!" output eDP-1
 
 # dwm-like tab switching
 bindsym $mod+Tab workspace back_and_forth

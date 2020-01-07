@@ -43,8 +43,6 @@ alias gd="git diff"
 alias gb="git branch"
 alias gpo="git push origin master"
 
-alias mkvirtualenv3='mkvirtualenv --python=/usr/bin/python3'
-
 # example: clipboard file.txt
 alias clipboard="xclip -sel clip <"
 
@@ -52,8 +50,12 @@ alias gogo="cd $GOPATH"
 alias mygo="cd $GOPATH/src/github.com/ProfOak"
 alias mkvirtualenv3='mkvirtualenv --python=/usr/bin/python3'
 
-alias wo='workon $(basename `pwd`)'
+alias wo='workon $(basename `pwd`)3'
+alias wo2='workon $(basename `pwd`)2'
 alias music='mpv --loop=inf --no-video --ytdl-format="bestvideo[vcodec!=vp9]+bestaudio/best"'
+
+# save image from clipboard
+alias saveimage='xclip -selection c -o > '
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
@@ -80,7 +82,7 @@ ale() {
     # isort   - auto sort imports according to pep8
     # vulture - find potentially dead code
     # flake8  - pep8 checker
-    pip install pylint isort vulture flake8
+    pip install pylint isort vulture flake8 sphinxcontrib-napoleon
 }
 
 va() {
@@ -92,14 +94,44 @@ va() {
     vim $(ag -l "$regex_query" "$directory")
 }
 
-startover() {
+startover2() {
     if [[ ! -z "$VIRTUAL_ENV" ]]; then
         deactivate
     fi
 
-    local venv=$(basename `pwd`)
+    local venv="$(basename `pwd`)2"
     rmvirtualenv "$venv"
     mkvirtualenv "$venv"
+
+    if [ -e requirements.txt ]; then
+        pip install -r requirements.txt
+    fi
+    if [ -e setup.py ]; then
+        python setup.py develop
+    fi
+    if [ -e dev-requirements.txt ]; then
+        pip install -r dev-requirements.txt
+    fi
+    if [ -e test-requirements.txt ]; then
+        pip install -r test-requirements.txt
+    fi
+}
+
+startover() {
+    # needs a full path to the python binary in /usr/bin/
+    local PYTHON="$1"
+
+    if [[ ! -z "$VIRTUAL_ENV" ]]; then
+        deactivate
+    fi
+
+    if [[ -z "$PYTHON" ]]; then
+        PYTHON=/usr/bin/python3.5
+    fi
+
+    local venv="$(basename `pwd`)3"
+    rmvirtualenv "$venv"
+    mkvirtualenv --python="$PYTHON" "$venv"
 
     if [ -e requirements.txt ]; then
         pip install -r requirements.txt
@@ -129,4 +161,9 @@ imp() {
     else
         python -c "from $1 import $2; print $2"
     fi
+}
+
+vpn() {
+    local action="$1"
+    sudo systemctl "$action" openvpn-client@me
 }

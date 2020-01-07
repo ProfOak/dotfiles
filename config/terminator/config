@@ -1,0 +1,35 @@
+[global_config]
+  borderless = True
+  hide_from_taskbar = True
+  inactive_color_offset = 1.0
+  scroll_tabbar = True
+[keybindings]
+  cycle_next = <Primary>Page_Up
+  cycle_prev = <Primary>Page_Down
+  new_tab = <Primary>Down
+  next_tab = <Primary>Right
+  prev_tab = <Primary>Left
+  zoom_in = <Primary>equal
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      profile = default
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+[plugins]
+[profiles]
+  [[default]]
+    allow_bold = False
+    background_darkness = 0.85
+    background_type = transparent
+    cursor_color = "#aaaaaa"
+    font = Hack 18
+    foreground_color = "#ffffff"
+    palette = "#000000:#cc6666:#66cc99:#cc9966:#6699cc:#cc6699:#66cccc:#cccccc:#999999:#ff9999:#99ffcc:#ffcc99:#99ccff:#f9f9f9:#99ffff:#ffffff"
+    scrollback_lines = 15000
+    scrollbar_position = hidden
+    show_titlebar = False
+    use_system_font = False
