@@ -1,0 +1,30 @@
+[global]
+    transparency = 20
+    alignment = left
+    notification_height = 20
+    frame_width = 2
+    frame_color = "#FFFFFF"
+    max_icon_size = 64
+    geometry = "600x10-10+30"
+    font = Hack 12
+    markup = full
+    format = " <b>%s</b>\n %b"
+    word_wrap = yes
+    corner_radius = 10
+    icon_position = left
+    icon_path = /usr/share/icons/oxygen/base/64x64/status:/usr/share/icons/oxygen/base/64x64/devices
+
+[urgency_low]
+    background = "#000000"
+    foreground = "#00FF00"
+    timeout = 5
+
+[urgency_normal]
+    background = "#000000"
+    foreground = "#FFFFFF"
+    timeout = 5
+
+[urgency_critical]
+    background = "#000000"
+    foreground = "#FF0000"
+    timeout = 0
