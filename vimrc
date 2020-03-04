@@ -23,13 +23,13 @@ Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdcommenter'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'xuhdev/SingleCompile'
-Plug 'flazz/vim-colorschemes'
+"Plug 'flazz/vim-colorschemes'
 Plug 'fatih/vim-go'
 Plug 'easymotion/vim-easymotion'
 Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'w0rp/ale'
 Plug 'bluz71/vim-moonfly-colors'
-"Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'rking/ag.vim'
 
 " Still debating  between this...
@@ -42,14 +42,19 @@ Plug 'Valloric/YouCompleteMe'
 
 call plug#end()
 
+set nu
+"syntax enable
+filetype on
+filetype plugin on
+
 " this is my 'theme'
 " tab bar colors
-hi TabLine     ctermfg=White ctermbg=none cterm=none
-hi TabLineSel  ctermfg=Red   ctermbg=none cterm=none
-hi TabLineFill ctermfg=none  ctermbg=none cterm=none
+highlight TabLine     ctermfg=White ctermbg=none cterm=none
+highlight TabLineSel  ctermfg=Red   ctermbg=none cterm=none
+highlight TabLineFill ctermfg=none  ctermbg=none cterm=none
 
 " status bar
-hi statusline ctermfg=Red ctermbg=none cterm=none
+highlight statusline ctermfg=Red ctermbg=none cterm=none
 set laststatus=2
 set statusline=%<%f\ %h%M%r%=%-14.(%l,%c%V%)\ %p%%
 
@@ -78,7 +83,8 @@ set pastetoggle=<F2>
 "colorscheme monokain
 "colorscheme moonfly
 colorscheme dracula
-hi Normal guibg=NONE ctermbg=NONE
+highlight Normal guibg=NONE ctermbg=NONE
+highlight NonText ctermbg=none
 
 autocmd BufRead,BufNewFile *.csv,*.tsv, set filetype=csv
 autocmd FileType csv set noexpandtab
@@ -101,11 +107,6 @@ autocmd FileType json set ts=2 sts=2 sw=2
 " please don't put comments at the start of the line for python
 au! FileType python setl nosmartindent
 
-set nu
-syntax on
-filetype on
-filetype plugin on
-
 let mapleader=","
 imap jj <esc>
 
@@ -119,11 +120,11 @@ noremap <Leader>f :GoFillStruct<enter>
 
 " spell check
 set spell spelllang=en_us
-hi clear SpellBad
-hi clear SpellCap
-hi clear SpellLocal
-hi clear SpellRare
-hi SpellBad cterm=underline ctermfg=red
+highlight clear SpellBad
+highlight clear SpellCap
+highlight clear SpellLocal
+highlight clear SpellRare
+highlight SpellBad cterm=underline ctermfg=red
 
 " word wrapping on cursor movement
 set whichwrap+=<,>,h,l,[,]
@@ -142,7 +143,6 @@ noremap <leader>x :tabnext<CR>
 noremap <leader>z :tabprevious<CR>
 noremap <leader>n :tabnew<CR>
 noremap <leader>q :tabclose<CR>
-
 
 """""""""""""""""""""""""""""
 "          plugins          "
