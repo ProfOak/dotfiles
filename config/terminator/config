@@ -6,6 +6,7 @@
 [keybindings]
   cycle_next = <Primary>Page_Up
   cycle_prev = <Primary>Page_Down
+  help = None
   new_tab = <Primary>Down
   next_tab = <Primary>Right
   prev_tab = <Primary>Left

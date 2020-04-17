@@ -62,6 +62,8 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
+bindsym $mod+m move workspace to output right
+
 # split in horizontal orientation
 bindsym $mod+h split h
 
@@ -91,8 +93,8 @@ bindsym $mod+a focus parent
 # switch to workspace
 bindsym $mod+1 workspace 1:work 
 bindsym $mod+2 workspace 2:chat 
-bindsym $mod+3 workspace 3:mail 
-bindsym $mod+4 workspace 4:web 
+bindsym $mod+3 workspace 3:mail 
+bindsym $mod+4 workspace 4:web 
 bindsym $mod+5 workspace 5:e
 bindsym $mod+6 workspace 6:x
 bindsym $mod+7 workspace 7:t
@@ -103,8 +105,8 @@ bindsym $mod+0 workspace 10:!
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1:work 
 bindsym $mod+Shift+2 move container to workspace 2:chat 
-bindsym $mod+Shift+3 move container to workspace 3:mail 
-bindsym $mod+Shift+4 move container to workspace 4:web 
+bindsym $mod+Shift+3 move container to workspace 3:mail 
+bindsym $mod+Shift+4 move container to workspace 4:web 
 bindsym $mod+Shift+5 move container to workspace 5:e
 bindsym $mod+Shift+6 move container to workspace 6:x
 bindsym $mod+Shift+7 move container to workspace 7:t
@@ -155,10 +157,12 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 # color blue: 00ddff
 bar {
-        status_command $HOME/.i3/conky-i3bar
+        status_command i3blocks
+        #status_command $HOME/.i3/conky-i3bar
         position top
         strip_workspace_numbers yes
-        font pango: Terminus, FontAwesome
+        font pango: Terminus, "Font Awesome 5 Free"
+        tray_output primary
         colors {
             background #000000
             statusline #ffffff
@@ -173,23 +177,27 @@ workspace_auto_back_and_forth yes
 
 # use `xprop` to find class names
 for_window [class="Pidgin"] floating enable
+for_window [class="Gajim"] floating enable
 for_window [class="Rox"] floating enable
 for_window [class="Gnome-calculator"] floating enable
 
+assign [class="Terminator"] 1:work 
 assign [class="Slack"] 2:chat 
-assign [class="Thunderbird"] 3:mail 
-assign [class="Firefox"] 4:web 
+assign [class="discord"] 2:chat 
+assign [class="Pidgin"] 2:chat 
+assign [class="Thunderbird"] 3:mail 
+assign [class="Firefox"] 4:web 
 
-# workspace "1:work " output DP-1
-# workspace "2:chat " output eDP-1
-# workspace "3:mail " output DP-1
-# workspace "4:web " output DP-1
-# workspace "e" output DP-1
-# workspace "x" output DP-1
-# workspace "t" output DP-1
-# workspace "r" output DP-1
-# workspace "a" output DP-1
-# workspace "!" output eDP-1
+workspace "1:work " output DP-0
+workspace "2:chat " output DVI-D-0
+workspace "3:mail " output DP-0
+workspace "4:web " output DP-0
+workspace "e" output DP-0
+workspace "x" output DP-0
+workspace "t" output DP-0
+workspace "r" output DP-0
+workspace "a" output DP-0
+workspace "!" output DP-0
 
 # dwm-like tab switching
 bindsym $mod+Tab workspace back_and_forth
@@ -200,5 +208,7 @@ exec_always ~/.i3/startup_script
 #exec --no-startup-id nm-applet
 exec --no-startup-id "terminator"
 exec --no-startup-id "slack"
+exec --no-startup-id "pidgin"
+exec --no-startup-id "discord"
 exec --no-startup-id "thunderbird"
 exec --no-startup-id "firefox"

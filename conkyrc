@@ -14,7 +14,7 @@ override_utf8_locale yes
 
 TEXT
 [
-{"full_text": " $mpd_status: $mpd_smart", "color" : "\#66CCCC", "separator": false},
+{"full_text": " $mpd_status: $mpd_smart", "color" : "\#66CCCC", "separator": false},
 
 {"full_text": " ${exec amixer get Master | grep -oE "[[:digit:]]*%" | head -1}",
     "color": "\#CC6666", "separator": false},
@@ -30,4 +30,3 @@ ${else}\
 
 {"full_text": "${time  %I:%M %P}", "color": "\#66CCCC", "separator": false}
 ],
-

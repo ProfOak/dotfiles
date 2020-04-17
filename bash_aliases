@@ -9,11 +9,13 @@ PS1='\n \[\e[1;37m\]┌─[\[\e[1;36m\] \d \[\e[1;31m\]\T \[\e[1;37m\]] [\[\e[1;
 #EDITOR=ed
 EDITOR=vim
 
-export GOROOT=/usr/go
 export GOPATH=$HOME/programming/go/
 
-export PATH="$PATH:$GOROOT/bin:$GOPATH/bin" # go stuff
+export PATH="$PATH:$GOPATH/bin" # go stuff
 export PATH="$PATH:$HOME/programming/bin"   # personal stuff
+export PATH="$PATH:$HOME/.local/bin"
+
+export HISTCONTROL=ignoreboth:erasedups
 
 # ===== aliases =====
 
@@ -126,7 +128,7 @@ startover() {
     fi
 
     if [[ -z "$PYTHON" ]]; then
-        PYTHON=/usr/bin/python3.5
+        PYTHON=/usr/bin/python3.8
     fi
 
     local venv="$(basename `pwd`)3"

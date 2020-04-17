@@ -5,8 +5,8 @@
    <!-- The root menu, if this is undefined you will not get a menu. -->
    <!-- Additional RootMenu attributes: onroot, labeled, label -->
    <RootMenu height="15" onroot="12">
-   
-      
+
+
 	  <!--
       <Menu icon="devices/media-cdrom-audio.png" label="Stepmania">
          <Program label="Stepmania" icon="mimetypes/gnome-mime-audio.png">/usr/StepMania</Program>
@@ -16,7 +16,7 @@
 
       <Separator/>
       <Program icon="apps/firefox.png" label="firefox">firefox</Program>
-      <Program icon="apps/terminal.png" label="urxvt">urxvt</Program>
+      <Program icon="apps/terminal.png" label="terminator">terminator</Program>
       <Program icon="places/folder.png" label="pcmanfm">pcmanfm</Program>
       <Program icon="places/folder.png" label="rox-filer">rox-filer -n</Program>
       <Separator/>
@@ -43,7 +43,7 @@
 
       <!-- Additional TrayButton attribute: label -->
       <TrayButton popup="Start Menu" label="Start">root:1</TrayButton>
-	  
+
       <TrayButton popup="Show Desktop" icon="places/desktop.png">showdesktop</TrayButton>
       <TrayButton popup="Run Dialogue" icon="actions/search.png">exec: gmrun</TrayButton>
 	  <TrayButton popup="Terminal" icon="apps/terminal.png">exec: urxvt</TrayButton>
@@ -153,7 +153,7 @@
    <SnapMode distance="10">border</SnapMode>
 
    <!-- The move mode (outline or opaque) -->
-   <MoveMode>opaque</MoveMode>	
+   <MoveMode>opaque</MoveMode>
 
    <!-- The resize mode (outline or opaque) -->
    <ResizeMode>opaque</ResizeMode>
@@ -185,4 +185,3 @@
    <Key mask="A" key="Down">ddesktop</Key>
 
 </JWM>
-

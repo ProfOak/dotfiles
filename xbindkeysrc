@@ -21,3 +21,30 @@
 
 "gnome-calculator"
   XF86Calculator
+
+"sleep 0.2 && xdotool key shift+ctrl+t"
+  m:0x10 + c:191
+
+"sleep 0.2 && xdotool click 2"
+  m:0x10 + c:192
+
+"sleep 0.2 && xdotool key ctrl+shift+Tab"
+  m:0x10 + c:195
+
+"sleep 0.2 && xdotool key ctrl+Tab"
+  m:0x10 + c:196
+
+"sleep 0.2 && xdotool key shift+Left"
+  m:0x10 + c:198
+
+"sleep 0.2 && xdotool key shift+Right"
+  m:0x10 + c:199
+
+"sleep 0.2 && xdotool key ctrl+space"
+  m:0x10 + c:200
+
+"sleep 0.2 && xdotool key ctrl+Left"
+  m:0x10 + c:201
+
+"sleep 0.2 && xdotool key ctrl+Right"
+  m:0x10 + c:202
