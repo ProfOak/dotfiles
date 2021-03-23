@@ -75,6 +75,10 @@ set smartcase
 set modelines=0
 set nomodeline
 
+set encoding=utf-8
+set fileencodings=utf-8,iso-2022-jp,euc-jp,sjis
+set fileformats=unix,dos,mac
+
 " display the paste information in the status line
 nnoremap <F2> :set invpaste paste?<CR>
 " :set paste/nopaste toggle
@@ -82,10 +86,15 @@ set pastetoggle=<F2>
 
 "colorscheme monokain
 "colorscheme moonfly
+" Set dracula_italic before changing the colorscheme to disable bg highlights
+let g:dracula_colorterm = 0
+let g:dracula_italic = 0
 colorscheme dracula
-highlight Normal guibg=NONE ctermbg=NONE
-highlight NonText ctermbg=none
+"highlight Normal guibg=NONE ctermbg=NONE
+"highlight NonText ctermbg=none
 
+" brighter purple
+highlight Comment ctermfg=104
 autocmd BufRead,BufNewFile *.csv,*.tsv, set filetype=csv
 autocmd FileType csv set noexpandtab
 
@@ -144,6 +153,9 @@ noremap <leader>z :tabprevious<CR>
 noremap <leader>n :tabnew<CR>
 noremap <leader>q :tabclose<CR>
 
+" Center the cursor after every up/down.
+noremap j jzz
+noremap k kzz
 """""""""""""""""""""""""""""
 "          plugins          "
 """""""""""""""""""""""""""""
@@ -192,6 +204,12 @@ nmap <F5> :SCCompileRun<cr>
 " ycm
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_gopls_binary_path = "$GOPATH/bin"
+
+" vim-go
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
+
 
 "let g:deoplete#enable_at_startup = 1
 

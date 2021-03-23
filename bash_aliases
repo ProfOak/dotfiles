@@ -1,5 +1,7 @@
 # Modified from this page:  https://wiki.archlinux.org/index.php/Color_Bash_Prompt#From_Arch_Forum_.231
-PS1='\n \[\e[1;37m\]┌─[\[\e[1;36m\] \d \[\e[1;31m\]\T \[\e[1;37m\]] [\[\e[1;36m\] \h \[\e[1;37m\]] \n\[\e[1;37m\] └─[ \[\e[1;34m\]@ \[\e[1;32m\]\w \[\e[1;37m\]]\[\e[1;35m\]---> \[\e[0;37m\]'
+# On Arch Linux bash-completion needs to be installed and this file needs to be sourced.
+source /usr/share/git/completion/git-prompt.sh
+PS1='\n \[\e[0;37m\]┌─[\[\e[0;36m\] \d \[\e[0;31m\]\T \[\e[0;37m\]] [\[\e[0;36m\] \h \[\e[0;37m\]] \[\e[0;31m\]$(__git_ps1 "[ %s ]")\n\[\e[0;37m\] └─[ \[\e[0;34m\]@ \[\e[0;32m\]\w \[\e[0;37m\]]\[\e[:;35m\]---> \[\e[0;37m\]'
 
 ####################
 # non-unicode
@@ -9,7 +11,7 @@ PS1='\n \[\e[1;37m\]┌─[\[\e[1;36m\] \d \[\e[1;31m\]\T \[\e[1;37m\]] [\[\e[1;
 #EDITOR=ed
 EDITOR=vim
 
-export GOPATH=$HOME/programming/go/
+export GOPATH=$HOME/programming/go
 
 export PATH="$PATH:$GOPATH/bin" # go stuff
 export PATH="$PATH:$HOME/programming/bin"   # personal stuff
@@ -84,7 +86,9 @@ ale() {
     # isort   - auto sort imports according to pep8
     # vulture - find potentially dead code
     # flake8  - pep8 checker
-    pip install pylint isort vulture flake8 sphinxcontrib-napoleon
+    #pip install pylint isort vulture flake8 sphinxcontrib-napoleon
+    pip install pylint isort
+    pip install black mypy
 }
 
 va() {
@@ -128,7 +132,7 @@ startover() {
     fi
 
     if [[ -z "$PYTHON" ]]; then
-        PYTHON=/usr/bin/python3.8
+        PYTHON=/usr/bin/python3.9
     fi
 
     local venv="$(basename `pwd`)3"
@@ -153,7 +157,7 @@ cry() {
     ssh-add -l > /dev/null 2>&1
     if [[ $? -eq 1 ]]; then
         eval "$(ssh-agent)" > /dev/null 2>&1
-        ssh-add -K > /dev/null 2>&1
+        ssh-add -k > /dev/null 2>&1
     fi
 }
 
