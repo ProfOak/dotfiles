@@ -209,7 +209,15 @@ let g:ycm_gopls_binary_path = "$GOPATH/bin"
 " vim-go
 let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
-
+let g:go_auto_type_info = 1
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_generate_tags = 1
 
 "let g:deoplete#enable_at_startup = 1
 

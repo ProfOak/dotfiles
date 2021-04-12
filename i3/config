@@ -26,6 +26,7 @@ font pango: Terminus, FontAwesome
 floating_modifier $mod
 
 # start a terminal
+#bindsym $mod+Return exec tabbed -c -r 2 st -w
 bindsym $mod+Return exec terminator
 
 # kill focused window
