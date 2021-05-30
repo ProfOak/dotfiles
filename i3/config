@@ -210,7 +210,7 @@ exec_always ~/.i3/startup_script
 exec --no-startup-id "terminator"
 exec --no-startup-id "slack"
 exec --no-startup-id "pidgin"
-exec --no-startup-id "discord"
+exec --no-startup-id "firejail discord"
 exec --no-startup-id "thunderbird"
 exec --no-startup-id "firefox"
 exec --no-startup-id "autokey-gtk"
