@@ -28,18 +28,15 @@ Plug 'fatih/vim-go'
 Plug 'easymotion/vim-easymotion'
 Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'w0rp/ale'
-Plug 'bluz71/vim-moonfly-colors'
+" Plug 'bluz71/vim-moonfly-colors'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'rking/ag.vim'
+"Plug 'elixir-editors/vim-elixir'
+Plug 'ziglang/zig.vim'
+Plug 'preservim/nerdtree'
 
-" Still debating  between this...
 Plug 'Valloric/YouCompleteMe'
-
-"Plug 'Shougo/deoplete.nvim'
-"Plug 'roxma/nvim-yarp'
-"Plug 'roxma/vim-hug-neovim-rpc'
-"Plug 'deoplete-plugins/deoplete-jedi'
-
+Plug 'vimwiki/vimwiki'
 call plug#end()
 
 set nu
@@ -74,6 +71,7 @@ set showcmd
 set smartcase
 set modelines=0
 set nomodeline
+set number relativenumber
 
 set encoding=utf-8
 set fileencodings=utf-8,iso-2022-jp,euc-jp,sjis
@@ -99,6 +97,7 @@ autocmd BufRead,BufNewFile *.csv,*.tsv, set filetype=csv
 autocmd FileType csv set noexpandtab
 
 autocmd BufRead,BufNewFile *.sls set filetype=yaml
+autocmd BufRead,BufNewFile *.asm set filetype=nasm nospell
 
 " tabs for go and make files
 autocmd FileType go set noexpandtab
@@ -220,6 +219,8 @@ let g:go_highlight_build_constraints = 1
 let g:go_highlight_generate_tags = 1
 let g:go_imports_autosave = 1
 let g:go_doc_keywordprg_enabled = 1
+let g:go_fmt_command="gopls"
+let g:go_gopls_gofumpt=1
 
 "let g:deoplete#enable_at_startup = 1
 
@@ -227,14 +228,33 @@ let g:go_doc_keywordprg_enabled = 1
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s'
+
+" astyle needs an ~/.astylerc because the defaults are not very opinionated.
 let g:ale_fixers = {
 \   'python': [
 \       'isort',
-\        'black',
+\       'black',
 \   ], 'sh': [
 \       'shfmt',
+\   ], 'c': [
+\       'clang-format',
+\   ], 'cpp': [
+\       'clang-format',
+\   ], 'html': [
+\       'prettier',
+\   ], 'javascript': [
+\       'prettier',
+\   ], 'yaml': [
+\       'prettier',
 \   ]
 \}
-"let g:ale_fix_on_save = 1
+"let g:ale_python_isort_options="--black"
+let g:ale_fix_on_save = 1
+let g:ag_working_path_mode = 'r'
+let g:ale_nasm_nasm_options = '-f 64'
+let g:ale_sh_shfmt_options  = '-i=4'
+let g:ale_go_golangci_lint_package = 1
 
-let g:ag_working_path_mode="r"
+"nerdtree
+nnoremap <C-n> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>

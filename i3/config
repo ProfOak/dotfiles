@@ -176,21 +176,22 @@ bar {
 # toggle back and forth workspaces by pressing one of their numbers
 workspace_auto_back_and_forth yes
 
-# use `xprop` to find class names
+# use `xprop | grep class` to find class names
 for_window [class="Pidgin"] floating enable
 for_window [class="Gajim"] floating enable
 for_window [class="Rox"] floating enable
-for_window [class="Gnome-calculator"] floating enable
+for_window [class="gnome-calculator"] floating enable
+for_window [class="org.gnome.clocks"] floating enable
 
 assign [class="Terminator"] 1:work 
 assign [class="Slack"] 2:chat 
 assign [class="discord"] 2:chat 
 assign [class="Pidgin"] 2:chat 
-assign [class="Thunderbird"] 3:mail 
-assign [class="Firefox"] 4:web 
+assign [class="thunderbird"] 3:mail 
+assign [class="firefox"] 4:web 
 
 workspace "1:work " output DP-0
-workspace "2:chat " output DVI-D-0
+workspace "2:chat " output HDMI--0
 workspace "3:mail " output DP-0
 workspace "4:web " output DP-0
 workspace "e" output DP-0
@@ -204,13 +205,14 @@ workspace "!" output DP-0
 bindsym $mod+Tab workspace back_and_forth
 
 # startup stuff
+exec "xrandr --dpi 100"
 exec_always ~/.i3/startup_script
 #exec --no-startup-id urxvt
-#exec --no-startup-id nm-applet
+exec --no-startup-id "dunst"
 exec --no-startup-id "terminator"
-exec --no-startup-id "slack"
+#exec --no-startup-id "slack"
 exec --no-startup-id "pidgin"
-exec --no-startup-id "firejail discord"
+exec --no-startup-id "discord"
 exec --no-startup-id "thunderbird"
 exec --no-startup-id "firefox"
-exec --no-startup-id "autokey-gtk"
+#exec --no-startup-id "autokey-gtk"

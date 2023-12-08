@@ -1,52 +1,38 @@
-URxvt.tintColor: White
-URxvt.transparent: true
-URxvt.shading: 15
+URxvt.background: #000000
+URxvt.foreground: #ffffff
 
-URxvt.saveLines: 12000
+URxvt.color0: #000000
+URxvt.color8: #999999
 
+URxvt.color1: #cc6666
+URxvt.color9: #ff9999
+
+URxvt.color2: #66cc99
+URxvt.color10: #99ffcc
+
+URxvt.color3: #cc9966
+URxvt.color11: #ffcc99
+
+URxvt.color4: #6699cc
+URxvt.color12: #99ccff
+
+URxvt.color5: #cc6699
+URxvt.color13: #ff99cc
+
+URxvt.color6: #66cccc
+URxvt.color14: #99ffff
+
+URxvt.color7: #cccccc
+URxvt.color15: #ffffff
+
+URxvt.cursorColor: #ffffff
+URxvt.cutchars: BACKSLASH '"&()*,;:<=>?@[]^{|}
 URxvt.font: xft: Hack:size=16
 URxvt.boldFont: xft: Hack:size=16
-
-URxvt.scrollBar: false
-URxvt.visualBell: false
-URxvt.cutchars: BACKSLASH '"&()*,;:<=>?@[]^{|}
-
 URxvt.perl-ext-common: tabbed,resize-font
-
-!special
-URxvt.foreground:   #ffffff
-URxvt.background:   #000000
-URxvt.cursorColor:  #ffffff
-
-! black
-URxvt.color0:       #000000
-URxvt.color8:       #999999
-
-! red
-URxvt.color1:       #cc6666
-URxvt.color9:       #ff9999
-
-! green
-URxvt.color2:       #66cc99
-URxvt.color10:      #99ffcc
-
-! yellow
-URxvt.color3:       #cc9966
-URxvt.color11:      #ffcc99
-
-! blue
-URxvt.color4:       #6699cc
-URxvt.color12:      #99ccff
-
-! magenta
-URxvt.color5:       #cc6699
-URxvt.color13:      #ff99cc
-
-! cyan
-URxvt.color6:       #66cccc
-URxvt.color14:      #99ffff
-
-! white
-URxvt.color7:       #cccccc
-URxvt.color15:      #ffffff
-
+URxvt.saveLines: 12000
+URxvt.scrollBar: false
+URxvt.shading: 25
+URxvt.tintColor: White
+URxvt.transparent:true
+URxvt.visualBell: false

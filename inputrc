@@ -1,0 +1,9 @@
+$include /etc/inputrc
+
+# arrow up
+"\e[A":history-search-backward
+## arrow down
+"\e[B":history-search-forward
+
+# trailing slashes on tab complete symlinked directories
+set mark-symlinked-directories on

@@ -13,8 +13,8 @@ export EDITOR=vim
 
 export GOPATH=$HOME/programming/go
 
-export PATH="$PATH:$GOPATH/bin"             # go stuff
-export PATH="$PATH:$HOME/programming/bin"   # personal stuff
+export PATH="$PATH:$GOPATH/bin"
+export PATH="$PATH:$HOME/programming/bin"
 export PATH="$PATH:$HOME/.local/bin"
 
 export HISTCONTROL=ignoreboth:erasedups
@@ -23,6 +23,7 @@ export HISTCONTROL=ignoreboth:erasedups
 
 alias wtf="pacman --color=always -Ss"
 alias omg="sudo pacman -S"
+alias upgrayedd="sudo pacman -Syu"
 alias ls="ls --color=always --sort=extension --group-directories-first"
 alias l="ls -l"
 alias lh="ls -lh"
@@ -30,11 +31,15 @@ alias gps="ps aux --sort rss | grep"
 alias ghist="history | grep"
 
 # loop a song
-alias z="mplayer -loop 0"
 alias music='mpv --loop=inf --no-video --ytdl-format="bestvideo[vcodec!=vp9]+bestaudio/best"'
 
 alias gdb="gdb -q"
+
+# tabs
 alias vim="vim -p"
+
+# Use arrow keys to backtrack in insert mode
+alias ed='rlwrap ed'
 
 alias links2="links2 https://duckduckgo.com"
 
@@ -58,36 +63,38 @@ alias wo2='workon $(basename `pwd`)2'
 # save image from clipboard
 alias saveimage='xclip -selection c -o > '
 
-# Use arrow keys to backtrack in insert mode
-alias ed='rlwrap ed'
-
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 # ===== functions =====
 
 whataremycolorsagain() {
-    for i in {0..255} ; do
+    for i in {0..255}; do
         printf "\x1b[38;5;${i}mcolour${i}\n"
     done
 }
 
 # pretty json
 pj() {
-    cat $1 | python -m json.tool | less
+    python -m json.tool <"$1" | less
 }
 
 ale() {
-    if [[ -z "$VIRTUAL_ENV" ]]; then
-        echo "No virtualenv set, exiting"
+    if [[ "$(pyenv local 2>&1)" == 'pyenv: no local version configured for this directory' ]]; then
+        echo "No pyenv virtualenv set, exiting"
         return 1
     fi
+
+    #if [[ -z "$VIRTUAL_ENV" ]]; then
+    #echo "No virtualenv set, exiting"
+    #return 1
+    #fi
 
     # pylint  - syntax checking
     # isort   - auto sort imports according to pep8
     # vulture - find potentially dead code
     # flake8  - pep8 checker
     #pip install pylint isort vulture flake8 sphinxcontrib-napoleon
-    pip install pylint isort
+    pip install ruff isort
     pip install black mypy
 }
 
@@ -97,47 +104,27 @@ va() {
     if [ -z "$directory" ]; then
         directory='.'
     fi
-    vim $(ag -l "$regex_query" "$directory")
-}
-
-startover2() {
-    if [[ ! -z "$VIRTUAL_ENV" ]]; then
-        deactivate
-    fi
-
-    local venv="$(basename `pwd`)2"
-    rmvirtualenv "$venv"
-    mkvirtualenv "$venv"
-
-    if [ -e requirements.txt ]; then
-        pip install -r requirements.txt
-    fi
-    if [ -e setup.py ]; then
-        python setup.py develop
-    fi
-    if [ -e dev-requirements.txt ]; then
-        pip install -r dev-requirements.txt
-    fi
-    if [ -e test-requirements.txt ]; then
-        pip install -r test-requirements.txt
-    fi
+    vim "$(ag -l "$regex_query" "$directory")"
 }
 
 startover() {
-    # needs a full path to the python binary in /usr/bin/
+    local NAME
     local PYTHON="$1"
-
-    if [[ ! -z "$VIRTUAL_ENV" ]]; then
-        deactivate
-    fi
-
     if [[ -z "$PYTHON" ]]; then
-        PYTHON=/usr/bin/python3.9
+        PYTHON=3.11
     fi
 
-    local venv="$(basename `pwd`)3"
-    rmvirtualenv "$venv"
-    mkvirtualenv --python="$PYTHON" "$venv"
+    NAME="$(basename "$(pwd)")"
+    pyenv virtualenv-delete -f "$NAME"
+
+    pyenv virtualenv "$PYTHON" "$NAME"
+    pyenv local "$NAME"
+    echo '---'
+
+    if [[ "$(pyenv local 2>&1)" == 'pyenv: no local version configured for this directory' ]]; then
+        echo 'No virtualenv?'
+        return
+    fi
 
     if [ -e requirements.txt ]; then
         pip install -r requirements.txt
@@ -151,14 +138,9 @@ startover() {
     if [ -e test-requirements.txt ]; then
         pip install -r test-requirements.txt
     fi
-}
 
-cry() {
-    ssh-add -l > /dev/null 2>&1
-    if [[ $? -eq 1 ]]; then
-        eval "$(ssh-agent)" > /dev/null 2>&1
-        ssh-add -k > /dev/null 2>&1
-    fi
+    python -m pip install pre-commit
+    python -m pip install ruff mypy black
 }
 
 imp() {
@@ -169,7 +151,6 @@ imp() {
     fi
 }
 
-vpn() {
-    local action="$1"
-    sudo systemctl "$action" openvpn-client@me
-}
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
