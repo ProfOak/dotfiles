@@ -27,7 +27,8 @@ floating_modifier $mod
 
 # start a terminal
 #bindsym $mod+Return exec tabbed -c -r 2 st -w
-bindsym $mod+Return exec terminator
+#bindsym $mod+Return exec terminator
+bindsym $mod+Return exec kitty
 
 # kill focused window
 bindsym $mod+Shift+c kill
@@ -176,7 +177,7 @@ bar {
 # toggle back and forth workspaces by pressing one of their numbers
 workspace_auto_back_and_forth yes
 
-# use `xprop | grep class` to find class names
+# use `xprop | grep -i class` to find class names
 for_window [class="Pidgin"] floating enable
 for_window [class="Gajim"] floating enable
 for_window [class="Rox"] floating enable
@@ -210,8 +211,10 @@ exec_always ~/.i3/startup_script
 #exec --no-startup-id urxvt
 exec --no-startup-id "dunst"
 exec --no-startup-id "terminator"
+exec --no-startup-id "kitty"
 #exec --no-startup-id "slack"
-exec --no-startup-id "pidgin"
+#exec --no-startup-id "pidgin"
+exec --no-startup-id "dino"
 exec --no-startup-id "discord"
 exec --no-startup-id "thunderbird"
 exec --no-startup-id "firefox"

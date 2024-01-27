@@ -3,8 +3,5 @@ xfce4-volumed
 nm-applet &
 xbindkeys
 
-feh --bg-scale /home/profoak/Pictures/Wallpapers/Newest/1386452484332.jpg
+nitrogen --restore
 conky | while read -r; do xsetroot -name "$REPLY"; done &
-
-
-

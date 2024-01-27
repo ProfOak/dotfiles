@@ -5,7 +5,7 @@ xset r rate 250 50
 xset -dpms
 xset s off
 
-compton \
+picom \
     -bCG \
     --no-fading-openclose \
     --no-fading-destroyed-argb \

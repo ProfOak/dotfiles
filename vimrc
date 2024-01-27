@@ -244,6 +244,8 @@ let g:ale_fixers = {
 \       'prettier',
 \   ], 'javascript': [
 \       'prettier',
+\   ], 'typescript': [
+\       'prettier',
 \   ], 'yaml': [
 \       'prettier',
 \   ]
