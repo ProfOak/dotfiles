@@ -1,0 +1,144 @@
+if status is-interactive
+    # Commands to run in interactive sessions can go here
+    set fish_greeting
+
+    #export EDITOR=ed
+    export EDITOR=vim
+    export GOPATH=$HOME/programming/go
+    export PATH="$PATH:$HOME/programming/bin"
+    export PATH="$PATH:$HOME/.local/bin"
+    export PATH="$PATH:$GOPATH/bin"
+    export HISTCONTROL=ignoreboth:erasedups
+
+    bind \e\[A history-prefix-search-backward
+    bind \e\[B history-prefix-search-forward
+
+    alias wtf="pacman --color=always -Ss"
+    alias omg="sudo pacman -S"
+    alias upgrayedd="sudo pacman -Syu"
+    alias ls="ls --color=always --sort=extension --group-directories-first"
+    alias l="ls -l"
+    alias lh="ls -lh"
+    alias gps="ps aux --sort rss | grep"
+    alias ghist="history | grep"
+
+    # loop a song
+    alias music='mpv --loop=inf --no-video --ytdl-format="bestvideo[vcodec!=vp9]+bestaudio/best"'
+
+    alias gdb="gdb -q"
+
+    # tabs
+    alias vim="vim -p"
+
+    # Use arrow keys to backtrack in insert mode
+    alias ed='rlwrap ed'
+
+    alias links2="links2 https://duckduckgo.com"
+
+    alias ga="git add"
+    alias gs="git status"
+    alias gc="git commit"
+    alias gl="git log"
+    alias gp="git push"
+    alias gd="git diff"
+    alias gb="git branch"
+
+    # example: clipboard file.txt
+    alias clipboard="xclip -sel clip <"
+
+    # save image from clipboard
+    alias saveimage='xclip -selection c -o > '
+
+    function whataremycolorsagain
+        for i in (seq 0 255)
+            set_color -o $i
+            echo -e "colour$i"
+            set_color normal
+        end
+    end
+
+    # pretty json
+    function pj
+        python -m json.tool <"$1" | less
+    end
+
+    function ale
+        if pyenv local > /dev/null 2>&1; then
+            echo "No pyenv virtualenv set, exiting"
+            return 1
+        end
+        # pylint
+        # isort
+        # vulture
+        # flake8
+        pip install pylint isort vulture flake8 sphinxcontrib-napoleon
+        pip install ruff isort black mypy
+    end
+
+    function va
+        set -l regex_query $argv[1]
+        set -l directory $argv[2]
+
+        if test -z $directory;
+            set -l directory .
+        end
+
+        vim (ag -l $regex_query $directory)
+    end
+
+    function startover
+        set -l NAME (basename (pwd))
+        set -l PYTHON "$1"
+
+        if test -z $PYTHON;
+            set -l PYTHON 3.11
+        end
+
+        pyenv virtualenv-delete -f "$NAME"
+        pyenv virtualenv "$PYTHON" "$NAME"
+        pyenv local "$NAME"
+
+        echo '---'
+
+        if test $(pyenv local 2>&1) = "pyenv: no local version configured for this directory";
+            echo 'No virtualenv?'
+            return
+        end
+
+        if [ -e requirements.txt ];
+            pip install -r requirements.txt
+        end
+
+        if [ -e setup.py ];
+            python setup.py develop
+        end
+
+        if [ -e dev-requirements.txt ];
+            pip install -r dev-requirements.txt
+        end
+
+        if [ -e test-requirements.txt ];
+            pip install -r test-requirements.txt
+        end
+
+        python -m pip install pre-commit
+        python -m pip install ruff mypy black
+    end
+
+    function imp
+        if test -z "$argv[2]"
+            python -c "import $argv[1]; print $argv[1]"
+        else
+            python -c "from $argv[1] import $argv[2]; print $argv[2]"
+        end
+    end
+
+    export PYENV_ROOT="$HOME/.pyenv"
+    command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init -)"
+
+    function last_history_item
+        echo $history[1]
+    end
+    abbr -a !! --position anywhere --function last_history_item
+end

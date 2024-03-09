@@ -1,0 +1,8 @@
+configuration {
+    modes: "combi";
+    modi: "combi";
+    font: "hack 16";
+    show-icons: true;
+    combi-modi: "drun,run";
+}
+@theme "/usr/share/rofi/themes/glue_pro_blue.rasi"

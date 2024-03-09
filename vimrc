@@ -30,6 +30,7 @@ Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'w0rp/ale'
 " Plug 'bluz71/vim-moonfly-colors'
 Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug 'rking/ag.vim'
 "Plug 'elixir-editors/vim-elixir'
 Plug 'ziglang/zig.vim'
@@ -77,6 +78,8 @@ set encoding=utf-8
 set fileencodings=utf-8,iso-2022-jp,euc-jp,sjis
 set fileformats=unix,dos,mac
 
+set termguicolors
+
 " display the paste information in the status line
 nnoremap <F2> :set invpaste paste?<CR>
 " :set paste/nopaste toggle
@@ -85,14 +88,15 @@ set pastetoggle=<F2>
 "colorscheme monokain
 "colorscheme moonfly
 " Set dracula_italic before changing the colorscheme to disable bg highlights
-let g:dracula_colorterm = 0
-let g:dracula_italic = 0
-colorscheme dracula
+"let g:dracula_colorterm = 0
+"let g:dracula_italic = 0
+"colorscheme dracula
+colorscheme catppuccin_mocha
 "highlight Normal guibg=NONE ctermbg=NONE
 "highlight NonText ctermbg=none
 
 " brighter purple
-highlight Comment ctermfg=104
+"highlight Comment ctermfg=104
 autocmd BufRead,BufNewFile *.csv,*.tsv, set filetype=csv
 autocmd FileType csv set noexpandtab
 
