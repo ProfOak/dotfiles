@@ -38,6 +38,7 @@ Plug 'preservim/nerdtree'
 
 Plug 'Valloric/YouCompleteMe'
 Plug 'vimwiki/vimwiki'
+Plug 'Yggdroot/indentLine'
 call plug#end()
 
 set nu
@@ -263,4 +264,12 @@ let g:ale_go_golangci_lint_package = 1
 
 "nerdtree
 nnoremap <C-n> :NERDTreeToggle<CR>
-nnoremap <C-f> :NERDTreeFind<CR>
+nnoremap <C-f> :NERDTreeFocus<CR>
+let g:NERDTreeFileLines = 1
+
+" Close the tab if NERDTree is the only window remaining in it.
+autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | call feedkeys(":quit\<CR>:\<BS>") | endif
+" Exit Vim if NERDTree is the only window remaining in the only tab.
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+" Open the existing NERDTree on each new tab.
+autocmd BufWinEnter * if &buftype != 'quickfix' && getcmdwintype() == '' | silent NERDTreeMirror | endif
