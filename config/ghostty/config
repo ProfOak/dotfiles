@@ -1,0 +1,42 @@
+background = 000000
+foreground= ffffff
+
+# black
+palette = 0=#000000
+palette = 8=#999999
+# red
+palette = 1=#cc6666
+palette = 9=#ff9999
+# green
+palette = 2=#66cc99
+palette = 10=#99ffcc
+# yellow
+palette = 3=#cc9966
+palette = 11=#ffcc99
+# blue
+palette = 4=#6699cc
+palette = 12=#99ccff
+# purple
+palette = 5=#cc6699
+palette = 13=#ff99cc
+# aqua
+palette = 6=#66cccc
+palette = 14=#99ffff
+# white
+palette = 7=#cccccc
+palette = 15=#ffffff
+
+font-family = "Hack"
+font-size = 18
+
+confirm-close-surface = false
+quit-after-last-window-closed = true
+
+gtk-titlebar = false
+window-theme = dark
+
+# background-opacity = 0.8
+
+keybind = ctrl+down=new_tab
+keybind = ctrl+right=next_tab
+keybind = ctrl+left=previous_tab
