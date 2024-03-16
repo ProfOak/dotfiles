@@ -213,7 +213,7 @@ let g:ycm_gopls_binary_path = "$GOPATH/bin"
 " vim-go
 let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
-"let g:go_auto_type_info = 1
+let g:go_auto_type_info = 1
 let g:go_highlight_types = 1
 let g:go_highlight_fields = 1
 let g:go_highlight_functions = 1
@@ -271,5 +271,3 @@ let g:NERDTreeFileLines = 1
 autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | call feedkeys(":quit\<CR>:\<BS>") | endif
 " Exit Vim if NERDTree is the only window remaining in the only tab.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
-" Open the existing NERDTree on each new tab.
-autocmd BufWinEnter * if &buftype != 'quickfix' && getcmdwintype() == '' | silent NERDTreeMirror | endif
