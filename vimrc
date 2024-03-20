@@ -34,6 +34,7 @@ Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug 'rking/ag.vim'
 "Plug 'elixir-editors/vim-elixir'
 Plug 'ziglang/zig.vim'
+Plug 'rust-lang/rust.vim'
 Plug 'preservim/nerdtree'
 
 Plug 'Valloric/YouCompleteMe'
@@ -271,3 +272,5 @@ let g:NERDTreeFileLines = 1
 autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | call feedkeys(":quit\<CR>:\<BS>") | endif
 " Exit Vim if NERDTree is the only window remaining in the only tab.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+
+let g:rustfmt_autosave = 1

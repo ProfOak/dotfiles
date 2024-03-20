@@ -177,7 +177,7 @@ assign [class="firefox"] 4:web 
 assign [class="dino"] 10:!
 
 workspace "1:work " output DP-0
-workspace "2:chat " output HDMI--0
+workspace "2:chat " output HDMI-0
 workspace "3:mail " output DP-0
 workspace "4:web " output DP-0
 workspace "e" output DP-0
@@ -185,7 +185,7 @@ workspace "x" output DP-0
 workspace "t" output DP-0
 workspace "r" output DP-0
 workspace "a" output DP-0
-workspace "!" output DP-0
+workspace "!" output HDMI-0
 
 # dwm-like tab switching
 bindsym $mod+Tab workspace back_and_forth
