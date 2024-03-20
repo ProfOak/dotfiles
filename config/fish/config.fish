@@ -13,9 +13,6 @@ if status is-interactive
     bind \e\[A history-prefix-search-backward
     bind \e\[B history-prefix-search-forward
 
-    alias wtf="pacman --color=always -Ss"
-    alias omg="sudo pacman -S"
-    alias upgrayedd="sudo pacman -Syu"
     alias ls="ls --color=always --sort=extension --group-directories-first"
     alias l="ls -l"
     alias lh="ls -lh"
@@ -49,6 +46,40 @@ if status is-interactive
     # save image from clipboard
     alias saveimage='xclip -selection c -o > '
 
+    function _os_version_name
+      if not string length --quiet $OS_VERSION_NAME
+            set -g OS_VERSION_NAME $(lsb_release -d|grep -oE '(Arch|Debian)')
+        end
+        echo $OS_VERSION_NAME
+    end
+
+    function wtf
+        switch $(_os_version_name)
+        case 'Arch'
+            pacman --color=always -Ss $argv
+        case 'Debian'
+            apt search $argv
+        end
+    end
+
+    function omg
+        switch $(_os_version_name)
+        case 'Arch'
+            sudo pacman -S $argv
+        case 'Debian'
+            sudo apt install $argv
+        end
+    end
+
+    function upgrayedd
+        switch $(_os_version_name)
+        case 'Arch'
+            sudo pacman -Syu
+        case 'Debian'
+            sudo apt update && sudo apt upgrade
+        end
+    end
+
     function whataremycolorsagain
         for i in (seq 0 255)
             set_color -o $i
@@ -59,11 +90,11 @@ if status is-interactive
 
     # pretty json
     function pj
-        python -m json.tool <"$1" | less
+        python -m json.tool < $argv[1] | less
     end
 
     function ale
-        if pyenv local > /dev/null 2>&1; then
+        if not pyenv local > /dev/null 2>&1
             echo "No pyenv virtualenv set, exiting"
             return 1
         end
@@ -91,7 +122,7 @@ if status is-interactive
         set -l PYTHON "$1"
 
         if test -z $PYTHON;
-            set -l PYTHON 3.11
+            set PYTHON '3.11'
         end
 
         pyenv virtualenv-delete -f "$NAME"
@@ -109,10 +140,6 @@ if status is-interactive
             pip install -r requirements.txt
         end
 
-        if [ -e setup.py ];
-            python setup.py develop
-        end
-
         if [ -e dev-requirements.txt ];
             pip install -r dev-requirements.txt
         end
@@ -121,15 +148,17 @@ if status is-interactive
             pip install -r test-requirements.txt
         end
 
+        pip install -e .
+
         python -m pip install pre-commit
         python -m pip install ruff mypy black
     end
 
     function imp
         if test -z "$argv[2]"
-            python -c "import $argv[1]; print $argv[1]"
+            python -c "import $argv[1]; print($argv[1])"
         else
-            python -c "from $argv[1] import $argv[2]; print $argv[2]"
+            python -c "from $argv[1] import $argv[2]; print($argv[2])"
         end
     end
 
