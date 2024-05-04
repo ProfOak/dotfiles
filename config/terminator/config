@@ -1,16 +1,28 @@
 [global_config]
   borderless = True
+  scroll_tabbar = True
   hide_from_taskbar = True
   inactive_color_offset = 1.0
-  scroll_tabbar = True
 [keybindings]
+  zoom_in = <Primary>equal
+  new_tab = <Primary>Down
   cycle_next = <Primary>Page_Up
   cycle_prev = <Primary>Page_Down
-  help = None
-  new_tab = <Primary>Down
   next_tab = <Primary>Right
   prev_tab = <Primary>Left
-  zoom_in = <Primary>equal
+  help = None
+[profiles]
+  [[default]]
+    allow_bold = False
+    background_darkness = 0.85
+    background_type = transparent
+    font = JetBrains Mono 18
+    foreground_color = "#ffffff"
+    show_titlebar = False
+    scrollbar_position = hidden
+    scrollback_lines = 15000
+    palette = "#000000:#cc6666:#66cc99:#cc9966:#6699cc:#cc6699:#66cccc:#cccccc:#999999:#ff9999:#99ffcc:#ffcc99:#99ccff:#f9f9f9:#99ffff:#ffffff"
+    use_system_font = False
 [layouts]
   [[default]]
     [[[child1]]]
@@ -21,16 +33,3 @@
       parent = ""
       type = Window
 [plugins]
-[profiles]
-  [[default]]
-    allow_bold = False
-    background_darkness = 0.85
-    background_type = transparent
-    cursor_color = "#aaaaaa"
-    font = Hack 18
-    foreground_color = "#ffffff"
-    palette = "#000000:#cc6666:#66cc99:#cc9966:#6699cc:#cc6699:#66cccc:#cccccc:#999999:#ff9999:#99ffcc:#ffcc99:#99ccff:#f9f9f9:#99ffff:#ffffff"
-    scrollback_lines = 15000
-    scrollbar_position = hidden
-    show_titlebar = False
-    use_system_font = False

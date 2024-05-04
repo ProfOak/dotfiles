@@ -26,7 +26,7 @@ palette = 14=#99ffff
 palette = 7=#cccccc
 palette = 15=#ffffff
 
-font-family = "Hack"
+font-family = "Jetbrains Mono"
 font-size = 18
 
 confirm-close-surface = false

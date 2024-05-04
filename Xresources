@@ -26,7 +26,7 @@ URxvt.color7: #cccccc
 URxvt.color15: #ffffff
 
 URxvt.cursorColor: #ffffff
-URxvt.cutchars: BACKSLASH '"&()*,;:<=>?@[]^{|}
+URxvt.cutchars: BACKSLASH "'\"&()*,;:<=>?@[]^{|}"
 URxvt.font: xft: Hack:size=16
 URxvt.boldFont: xft: Hack:size=16
 URxvt.perl-ext-common: tabbed,resize-font
@@ -36,3 +36,6 @@ URxvt.shading: 25
 URxvt.tintColor: White
 URxvt.transparent:true
 URxvt.visualBell: false
+
+! https://wiki.archlinux.org/title/HiDPI#X_Resources
+Xft.dpi: 96

@@ -210,6 +210,7 @@ nmap <F5> :SCCompileRun<cr>
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_gopls_binary_path = "$GOPATH/bin"
+map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " vim-go
 let g:go_def_mode='gopls'
@@ -228,6 +229,8 @@ let g:go_doc_keywordprg_enabled = 1
 let g:go_fmt_command="gopls"
 let g:go_gopls_gofumpt=1
 
+" rust.vim
+let g:rustfmt_autosave = 1
 "let g:deoplete#enable_at_startup = 1
 
 " ale
@@ -237,24 +240,15 @@ let g:ale_echo_msg_format = '[%linter%] %s'
 
 " astyle needs an ~/.astylerc because the defaults are not very opinionated.
 let g:ale_fixers = {
-\   'python': [
-\       'isort',
-\       'black',
-\   ], 'sh': [
-\       'shfmt',
-\   ], 'c': [
-\       'clang-format',
-\   ], 'cpp': [
-\       'clang-format',
-\   ], 'html': [
-\       'prettier',
-\   ], 'javascript': [
-\       'prettier',
-\   ], 'typescript': [
-\       'prettier',
-\   ], 'yaml': [
-\       'prettier',
-\   ]
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'python': ['ruff_format', 'ruff'],
+\   'sh': ['shfmt'],
+\   'c': ['clang-format'],
+\   'cpp': ['clang-format'],
+\   'html': ['prettier'],
+\   'javascript': ['prettier'],
+\   'typescript': ['prettier'],
+\   'yaml': ['prettier'],
 \}
 "let g:ale_python_isort_options="--black"
 let g:ale_fix_on_save = 1
@@ -272,5 +266,3 @@ let g:NERDTreeFileLines = 1
 autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | call feedkeys(":quit\<CR>:\<BS>") | endif
 " Exit Vim if NERDTree is the only window remaining in the only tab.
 autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
-
-let g:rustfmt_autosave = 1

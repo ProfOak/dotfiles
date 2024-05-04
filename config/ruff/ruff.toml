@@ -1,0 +1,64 @@
+# Exclude a variety of commonly ignored directories.
+exclude = [
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".git-rewrite",
+    ".hg",
+    ".ipynb_checkpoints",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".pyenv",
+    ".pytest_cache",
+    ".pytype",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    ".vscode",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "node_modules",
+    "site-packages",
+    "venv",
+]
+
+# Try to be compatible with black.
+line-length = 88
+indent-width = 4
+
+# Default python
+target-version = "py311"
+
+[lint]
+# https://docs.astral.sh/ruff/rules/
+# E - pycodstyle
+# F - Pyflakes
+# I - isort
+# UP - pyupgrade
+# C4 - flake8-comprehensions
+# N - pep8-naming
+# ANN - flake8-annotations
+# ASYNC - flake8-async
+# B - flake8-bugbear
+# PT - flake8-pytest-style
+# SIM - flake8-simplify
+# TID - flake8-tidy-imports
+select = ["E4", "E7", "E9", "F", "I", "UP", "C4", "N", "ANN", "ASYNC", "B", "PT", "SIM", "TID"]
+ignore = ["B019"]
+
+# Allow fix for all enabled rules (when `--fix`) is provided.
+fixable = ["ALL"]
+unfixable = []
+
+# Try to be compatible with black.
+[format]
+quote-style = "double"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
