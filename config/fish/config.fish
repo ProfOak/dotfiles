@@ -98,12 +98,7 @@ if status is-interactive
             echo "No pyenv virtualenv set, exiting"
             return 1
         end
-        # pylint
-        # isort
-        # vulture
-        # flake8
-        pip install pylint isort vulture flake8 sphinxcontrib-napoleon
-        pip install ruff isort black mypy
+        pip install ruff mypy
     end
 
     function va
@@ -119,12 +114,13 @@ if status is-interactive
 
     function startover
         set -l NAME (basename (pwd))
-        set -l PYTHON "$1"
+        set -l PYTHON "$argv[1]"
 
         if test -z $PYTHON;
             set PYTHON '3.11'
         end
 
+        echo "Using python $PYTHON"
         pyenv virtualenv-delete -f "$NAME"
         pyenv virtualenv "$PYTHON" "$NAME"
         pyenv local "$NAME"

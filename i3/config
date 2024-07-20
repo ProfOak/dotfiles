@@ -3,6 +3,16 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod1
+set $ws1 1:work 
+set $ws2 2:chat 
+set $ws3 3:mail 
+set $ws4 4:web 
+set $ws5 5:e
+set $ws6 6:x
+set $ws7 7:t
+set $ws8 8:r
+set $ws9 9:a
+set $ws10 10:!
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
@@ -13,15 +23,11 @@ font pango: Terminus, FontAwesome
 floating_modifier $mod
 
 # start a terminal
-#bindsym $mod+Return exec tabbed -c -r 2 st -w
-#bindsym $mod+Return exec terminator
-#bindsym $mod+Return exec ghostty
-bindsym $mod+Return exec wezterm
+bindsym $mod+Return exec ghostty
 
 # kill focused window
 bindsym $mod+Shift+c kill
 
-#bindsym $mod+p exec dmenu_run -p "> " -nb "#000000" -nf "#ffffff" -sb "#ffffff" -sf "#000000"
 bindsym $mod+p exec rofi -show combi -combi-modi drun#run
 
 # change focus
@@ -77,28 +83,28 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # switch to workspace
-bindsym $mod+1 workspace 1:work 
-bindsym $mod+2 workspace 2:chat 
-bindsym $mod+3 workspace 3:mail 
-bindsym $mod+4 workspace 4:web 
-bindsym $mod+5 workspace 5:e
-bindsym $mod+6 workspace 6:x
-bindsym $mod+7 workspace 7:t
-bindsym $mod+8 workspace 8:r
-bindsym $mod+9 workspace 9:a
-bindsym $mod+0 workspace 10:!
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1:work 
-bindsym $mod+Shift+2 move container to workspace 2:chat 
-bindsym $mod+Shift+3 move container to workspace 3:mail 
-bindsym $mod+Shift+4 move container to workspace 4:web 
-bindsym $mod+Shift+5 move container to workspace 5:e
-bindsym $mod+Shift+6 move container to workspace 6:x
-bindsym $mod+Shift+7 move container to workspace 7:t
-bindsym $mod+Shift+8 move container to workspace 8:r
-bindsym $mod+Shift+9 move container to workspace 9:a
-bindsym $mod+Shift+0 move container to workspace 10:!
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
 
 # titlebar colors
 client.focused          #000000 #000000 #ffffff #ffffff
@@ -168,26 +174,26 @@ for_window [class="Rox"] floating enable
 for_window [class="gnome-calculator"] floating enable
 for_window [class="org.gnome.clocks"] floating enable
 
-assign [class="terminator"] 1:work 
-assign [class="ghostty"] 1:work 
-assign [class="org.wezfurlong.wezterm"] 1:work 
-assign [class="Slack"] 2:chat 
-assign [class="discord"] 2:chat 
-assign [class="Pidgin"] 2:chat 
-assign [class="thunderbird"] 3:mail 
-assign [class="firefox"] 4:web 
-assign [class="dino"] 10:!
+assign [class="terminator"] $ws1
+assign [class="ghostty"] $ws1
+assign [class="org.wezfurlong.wezterm"] $ws1
+assign [class="Slack"] $ws2
+assign [class="discord"] $ws2
+assign [class="Pidgin"] $ws2
+assign [class="thunderbird"] $ws3
+assign [class="firefox"] $ws4
+assign [class="dino"] $ws10
 
-workspace "1:work " output DP-0
-workspace "2:chat " output HDMI-0
-workspace "3:mail " output DP-0
-workspace "4:web " output DP-0
-workspace "e" output DP-0
-workspace "x" output DP-0
-workspace "t" output DP-0
-workspace "r" output DP-0
-workspace "a" output DP-0
-workspace "!" output HDMI-0
+workspace "$ws1" output DP-0
+workspace "$ws2" output HDMI-0
+workspace "$ws3" output DP-0
+workspace "$ws4" output DP-0
+workspace "$ws5" output DP-0
+workspace "$ws6" output DP-0
+workspace "$ws7" output DP-0
+workspace "$ws8" output DP-0
+workspace "$ws9" output DP-0
+workspace "$ws10" output HDMI-0
 
 # dwm-like tab switching
 bindsym $mod+Tab workspace back_and_forth
@@ -197,14 +203,7 @@ exec "xrandr --dpi 100"
 exec_always ~/.i3/startup_script
 exec --no-startup-id "dunst"
 exec --no-startup-id "numlockx"
-#exec --no-startup-id urxvt
-#exec --no-startup-id "terminator"
-#exec --no-startup-id "ghostty"
-exec --no-startup-id "wezterm"
-#exec --no-startup-id "slack"
-#exec --no-startup-id "pidgin"
+exec --no-startup-id "ghostty"
 exec --no-startup-id "GTK_THEME=Adwaita-dark dino"
-exec --no-startup-id "discord"
 exec --no-startup-id "thunderbird"
 exec --no-startup-id "firefox"
-#exec --no-startup-id "autokey-gtk"

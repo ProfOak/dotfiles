@@ -26,7 +26,7 @@ palette = 14=#99ffff
 palette = 7=#cccccc
 palette = 15=#ffffff
 
-font-family = "Jetbrains Mono"
+font-family = "JetBrains Mono"
 font-size = 18
 
 confirm-close-surface = false
@@ -40,3 +40,8 @@ window-theme = dark
 keybind = ctrl+down=new_tab
 keybind = ctrl+right=next_tab
 keybind = ctrl+left=previous_tab
+
+keybind = shift+up=unbind
+keybind = shift+left=unbind
+keybind = shift+right=unbind
+keybind = shift+down=unbind
