@@ -12,7 +12,6 @@ if [[ -f "/sys/class/power_supply/BAT0/present" ]]; then
     battery_info=$(acpi)
     battery_status="$(echo "$battery_info" | grep -oP '(Charging|Discharging)')"
     battery_level="$(echo "$battery_info" | sed -nE 's/.*, ([0-9]*)%.*/\1/p')"
-    #battery_time=$(echo "$battery_info" | grep -oP '\d{2}:\d{2}:\d{2}')
     battery_time="$(echo "$battery_info" | grep -oP '\d{2}:\d{2}')"
     if [[ "$battery_status" = 'Charging' ]]; then
         MESSAGE=''
@@ -25,7 +24,10 @@ if [[ -f "/sys/class/power_supply/BAT0/present" ]]; then
     else
         MESSAGE=''
     fi
-    MESSAGE="$MESSAGE $battery_level% ($battery_time)"
+    MESSAGE="$MESSAGE $battery_level%"
+    if [[ -n "$battery_time" ]]; then
+        MESSAGE="$MESSAGE ($battery_time)"
+    fi
 fi
 
 echo "$MESSAGE"
