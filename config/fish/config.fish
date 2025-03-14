@@ -20,7 +20,7 @@ if status is-interactive
     alias ghist="history | grep"
 
     # loop a song
-    alias music='mpv --loop=inf --no-video --ytdl-format="bestvideo[vcodec!=vp9]+bestaudio/best"'
+    alias music='mpv --loop=inf --no-video --no-resume-playback --ytdl-format="bestvideo[vcodec!=vp9]+bestaudio/best"'
 
     alias gdb="gdb -q"
 
@@ -44,7 +44,16 @@ if status is-interactive
     alias clipboard="xclip -sel clip <"
 
     # save image from clipboard
-    alias saveimage='xclip -selection c -o > '
+    #alias saveimage='xclip -selection c -o > '
+
+    function saveimage
+        set -l filename $argv[1]
+        if test -e $filename;
+            echo "Error: $filename exists"
+        else
+            xclip -selection c -o > $filename
+        end
+    end
 
     function _os_version_name
       if not string length --quiet $OS_VERSION_NAME
@@ -117,7 +126,7 @@ if status is-interactive
         set -l PYTHON "$argv[1]"
 
         if test -z $PYTHON;
-            set PYTHON '3.11'
+            set PYTHON '3.13'
         end
 
         echo "Using python $PYTHON"

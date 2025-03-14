@@ -1,3 +1,5 @@
+Sxiv.background: #000000
+
 URxvt.background: #000000
 URxvt.foreground: #ffffff
 

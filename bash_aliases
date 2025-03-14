@@ -111,7 +111,7 @@ startover() {
     local NAME
     local PYTHON="$1"
     if [[ -z "$PYTHON" ]]; then
-        PYTHON=3.11
+        PYTHON=3.13
     fi
 
     NAME="$(basename "$(pwd)")"

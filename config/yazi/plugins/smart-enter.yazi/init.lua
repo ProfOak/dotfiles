@@ -1,3 +1,4 @@
+--- @sync entry
 -- https://yazi-rs.github.io/docs/tips/#smart-enter
 return {
 	entry = function()

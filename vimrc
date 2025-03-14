@@ -250,6 +250,7 @@ let g:ale_fixers = {
 \   'typescript': ['prettier'],
 \   'yaml': ['prettier'],
 \}
+"\   'lua': ['stylua'],
 "let g:ale_python_isort_options="--black"
 let g:ale_fix_on_save = 1
 let g:ag_working_path_mode = 'r'

@@ -5,15 +5,6 @@ xset r rate 250 50
 xset -dpms
 xset s off
 
-picom \
-    -bCG \
-    --no-fading-openclose \
-    --no-fading-destroyed-argb \
-    --fade-in-step=1 \
-    --fade-out-step=1 \
-    --fade-delta=0 \
-    --inactive-opacity=1
-
 xbindkeys
 
 # wallpaper
