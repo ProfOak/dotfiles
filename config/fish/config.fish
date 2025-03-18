@@ -10,8 +10,11 @@ if status is-interactive
     export PATH="$PATH:$GOPATH/bin"
     export HISTCONTROL=ignoreboth:erasedups
 
-    bind \e\[A history-prefix-search-backward
-    bind \e\[B history-prefix-search-forward
+    # NOTE: It's not clear whether or not the key sequence is still needed in fish 4.0
+    # bind \e\[A history-prefix-search-backward
+    # bind \e\[B history-prefix-search-forward
+    bind up history-prefix-search-backward
+    bind down history-prefix-search-forward
 
     alias ls="ls --color=always --sort=extension --group-directories-first"
     alias l="ls -l"
