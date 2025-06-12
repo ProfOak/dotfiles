@@ -8,6 +8,8 @@ if status is-interactive
     export PATH="$PATH:$HOME/programming/bin"
     export PATH="$PATH:$HOME/.local/bin"
     export PATH="$PATH:$GOPATH/bin"
+    export PATH="$PATH:$HOME/.cargo/bin"
+    export PATH="$PATH:$HOME/.nix-profile/bin"
     export HISTCONTROL=ignoreboth:erasedups
 
     # NOTE: It's not clear whether or not the key sequence is still needed in fish 4.0
