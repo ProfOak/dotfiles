@@ -16,8 +16,8 @@ set $ws10 10:!
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
-font pango: Terminus, FontAwesome
-#font pango:Source Code Pro for Powerline 10px
+# ttf-terminus-nerd
+font pango: Terminess Nerd Font
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -153,7 +153,7 @@ bar {
         #status_command $HOME/.i3/conky-i3bar
         position top
         strip_workspace_numbers yes
-        font pango: Terminus, "Font Awesome 5 Free"
+        font pango: Terminess Nerd Font
         tray_output primary
         colors {
             background #000000
@@ -207,6 +207,7 @@ exec --no-startup-id "dunst"
 exec --no-startup-id "picom"
 exec --no-startup-id "numlockx"
 exec --no-startup-id "ghostty"
-exec --no-startup-id "GTK_THEME=Adwaita-dark dino"
+# Set GTK_THEME variable in /etc/environment for dark mode
+exec --no-startup-id "dino"
 exec --no-startup-id "thunderbird"
 exec --no-startup-id "firefox"

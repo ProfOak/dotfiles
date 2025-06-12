@@ -16,7 +16,7 @@
     allow_bold = False
     background_darkness = 0.85
     background_type = transparent
-    font = JetBrains Mono 18
+    font = JetBrainsMonoNL Nerd Font 18
     foreground_color = "#ffffff"
     show_titlebar = False
     scrollbar_position = hidden
