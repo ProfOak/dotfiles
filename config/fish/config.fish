@@ -2,15 +2,15 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
     set fish_greeting
 
-    #export EDITOR=ed
-    export EDITOR=vim
-    export GOPATH=$HOME/programming/go
-    export PATH="$PATH:$HOME/programming/bin"
-    export PATH="$PATH:$HOME/.local/bin"
-    export PATH="$PATH:$GOPATH/bin"
-    export PATH="$PATH:$HOME/.cargo/bin"
-    export PATH="$PATH:$HOME/.nix-profile/bin"
-    export HISTCONTROL=ignoreboth:erasedups
+    #set -g EDITOR ed
+    set -g EDITOR vim
+    set -g GOPATH $HOME/programming/go
+    fish_add_path -g $HOME/programming/bin
+    fish_add_path -g $HOME/.local/bin
+    fish_add_path -g $GOPATH/bin
+    fish_add_path -g $HOME/.cargo/bin
+    fish_add_path -g $HOME/.nix-profile/bin
+    set -g HISTCONTROL ignoreboth:erasedups
 
     # NOTE: It's not clear whether or not the key sequence is still needed in fish 4.0
     # bind \e\[A history-prefix-search-backward
@@ -53,15 +53,15 @@ if status is-interactive
 
     function saveimage
         set -l filename $argv[1]
-        if test -e $filename;
+        if test -e $filename
             echo "Error: $filename exists"
         else
-            xclip -selection c -o > $filename
+            xclip -selection c -o >$filename
         end
     end
 
     function _os_version_name
-      if not string length --quiet $OS_VERSION_NAME
+        if not string length --quiet $OS_VERSION_NAME
             set -g OS_VERSION_NAME $(lsb_release -d|grep -oE '(Arch|Debian)')
         end
         echo $OS_VERSION_NAME
@@ -69,28 +69,28 @@ if status is-interactive
 
     function wtf
         switch $(_os_version_name)
-        case 'Arch'
-            pacman --color=always -Ss $argv
-        case 'Debian'
-            apt search $argv
+            case Arch
+                pacman --color=always -Ss $argv
+            case Debian
+                apt search $argv
         end
     end
 
     function omg
         switch $(_os_version_name)
-        case 'Arch'
-            sudo pacman -S $argv
-        case 'Debian'
-            sudo apt install $argv
+            case Arch
+                sudo pacman -S $argv
+            case Debian
+                sudo apt install $argv
         end
     end
 
     function upgrayedd
         switch $(_os_version_name)
-        case 'Arch'
-            sudo pacman -Syu
-        case 'Debian'
-            sudo apt update && sudo apt upgrade
+            case Arch
+                sudo pacman -Syu
+            case Debian
+                sudo apt update && sudo apt upgrade
         end
     end
 
@@ -104,11 +104,11 @@ if status is-interactive
 
     # pretty json
     function pj
-        python -m json.tool < $argv[1] | less
+        python -m json.tool <$argv[1] | less
     end
 
     function ale
-        if not pyenv local > /dev/null 2>&1
+        if not pyenv local >/dev/null 2>&1
             echo "No pyenv virtualenv set, exiting"
             return 1
         end
@@ -119,7 +119,7 @@ if status is-interactive
         set -l regex_query $argv[1]
         set -l directory $argv[2]
 
-        if test -z $directory;
+        if test -z $directory
             set -l directory .
         end
 
@@ -130,7 +130,7 @@ if status is-interactive
         set -l NAME (basename (pwd))
         set -l PYTHON "$argv[1]"
 
-        if test -z $PYTHON;
+        if test -z $PYTHON
             set PYTHON '3.13'
         end
 
@@ -139,22 +139,22 @@ if status is-interactive
         pyenv virtualenv "$PYTHON" "$NAME"
         pyenv local "$NAME"
 
-        echo '---'
+        echo ---
 
-        if test $(pyenv local 2>&1) = "pyenv: no local version configured for this directory";
+        if test $(pyenv local 2>&1) = "pyenv: no local version configured for this directory"
             echo 'No virtualenv?'
             return
         end
 
-        if [ -e requirements.txt ];
+        if [ -e requirements.txt ]
             pip install -r requirements.txt
         end
 
-        if [ -e dev-requirements.txt ];
+        if [ -e dev-requirements.txt ]
             pip install -r dev-requirements.txt
         end
 
-        if [ -e test-requirements.txt ];
+        if [ -e test-requirements.txt ]
             pip install -r test-requirements.txt
         end
 
