@@ -17,4 +17,4 @@ redshift -x
 redshift -O 3000 -r
 
 # custom script to set up multiple monitors.
-auto-monitors
+$HOME/.local/bin/auto-monitors
