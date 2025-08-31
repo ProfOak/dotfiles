@@ -32,8 +32,6 @@ exclude = [
 line-length = 100
 indent-width = 4
 
-# Default python
-target-version = "py311"
 
 [lint]
 # https://docs.astral.sh/ruff/rules/
