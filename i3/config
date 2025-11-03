@@ -3,6 +3,7 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod1
+#set $mod Mod4
 set $ws1 1:work 
 set $ws2 2:chat 
 set $ws3 3:mail 
@@ -172,6 +173,7 @@ for_window [class="Pidgin"] floating enable
 for_window [class="Gajim"] floating enable
 for_window [class="Rox"] floating enable
 for_window [class="gnome-calculator"] floating enable
+for_window [class="kalgebra"] floating enable
 for_window [class="org.gnome.clocks"] floating enable
 
 assign [class="terminator"] $ws1
@@ -199,13 +201,13 @@ workspace "$ws10" output HDMI-0
 bindsym $mod+Tab workspace back_and_forth
 
 # startup stuff
-exec "xrandr --dpi 100"
 exec_always ~/.i3/startup_script
 # There are some issues with polybar the way it's currently configured.
 #exec_always ~/.i3/polybar-muli-monitor.sh
 exec --no-startup-id "dunst"
 exec --no-startup-id "picom"
 exec --no-startup-id "numlockx"
+exec --no-startup-id "kasts"
 exec --no-startup-id "ghostty"
 # Set GTK_THEME variable in /etc/environment for dark mode
 exec --no-startup-id "dino"

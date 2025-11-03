@@ -19,5 +19,5 @@
 "import png:- | xclip -selection c -t image/png"
   Print
 
-"gnome-calculator"
+"kalgebra"
   XF86Calculator
