@@ -15,7 +15,7 @@ bind down history-prefix-search-forward
 alias ls="ls --color=always --sort=extension --group-directories-first"
 alias l="ls -l"
 alias lh="ls -lh"
-alias gps="ps aux --sort rss | grep"
+alias gps="ps -eo pid,comm,rss --sort rss | grep"
 alias ghist="history | grep"
 
 # loop a song
