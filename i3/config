@@ -175,6 +175,7 @@ for_window [class="Rox"] floating enable
 for_window [class="gnome-calculator"] floating enable
 for_window [class="kalgebra"] floating enable
 for_window [class="org.gnome.clocks"] floating enable
+for_window [class="mpv"] floating enable
 
 assign [class="terminator"] $ws1
 assign [class="ghostty"] $ws1

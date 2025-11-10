@@ -35,7 +35,7 @@ quit-after-last-window-closed = true
 gtk-titlebar = false
 window-theme = dark
 
-# background-opacity = 0.8
+background-opacity = 0.95
 
 keybind = ctrl+down=new_tab
 keybind = ctrl+right=next_tab
