@@ -2,9 +2,11 @@ set fish_greeting
 
 #set -g EDITOR ed
 set -g EDITOR nvim
-# Set GOPATH with `go env -w GOPATH=/path/to/gopath`
+# Set a go.mod project's GOPATH with `go env -w GOPATH=/path/to/gopath`
+set -g GOPATH $HOME/programming/go
 fish_add_path -g $HOME/programming/bin
 fish_add_path -g $HOME/.local/bin
+fish_add_path -g $GOPATH/bin
 fish_add_path -g $HOME/.cargo/bin
 fish_add_path -g $HOME/.nix-profile/bin
 set -g HISTCONTROL ignoreboth:erasedups
