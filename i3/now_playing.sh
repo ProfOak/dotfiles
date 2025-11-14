@@ -10,13 +10,16 @@ esac
 text="$(mpc)"
 if [[ "$(echo "$text" | wc -l)" -eq 1 ]]; then
   echo ' stopped'
-  return
+  exit 0
 fi
 
 song="$(echo "$text" | head -1)"
-status="$(echo "$text" | sed -n '2 p' | grep -oE '(playing|paused)')"
+status="$(echo "$text" | sed -n '2 p' | grep -oP '(playing|paused)')"
+time_stamp=$(echo "$text" | grep -oP '\d{1,2}:\d{2}\/\d{1,2}:\d{2}')
+now_playing_text="${song} - ${time_stamp}"
+
 case "$status" in
-'playing') echo " $song" ;;
-'paused') echo " $song" ;;
+'playing') echo " $now_playing_text" ;;
+'paused') echo " $now_playing_text" ;;
 *) echo '???' ;;
 esac
