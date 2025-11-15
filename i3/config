@@ -15,6 +15,9 @@ set $ws8 8:r
 set $ws9 9:a
 set $ws10 10:!
 
+set $monitor_left DP-0
+set $monitor_right HDMI-0
+
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
 # ttf-terminus-nerd
@@ -183,28 +186,26 @@ assign [class="org.wezfurlong.wezterm"] $ws1
 assign [class="Slack"] $ws2
 assign [class="discord"] $ws2
 assign [class="Pidgin"] $ws2
-assign [class="thunderbird"] $ws3
+assign [class="org.mozilla.Thunderbird"] $ws3
 assign [class="firefox"] $ws4
 assign [class="dino"] $ws10
 
-workspace "$ws1" output DP-0
-workspace "$ws2" output HDMI-0
-workspace "$ws3" output DP-0
-workspace "$ws4" output DP-0
-workspace "$ws5" output DP-0
-workspace "$ws6" output DP-0
-workspace "$ws7" output DP-0
-workspace "$ws8" output DP-0
-workspace "$ws9" output DP-0
-workspace "$ws10" output HDMI-0
+workspace "$ws1" output $monitor_left
+workspace "$ws2" output $monitor_right
+workspace "$ws3" output $monitor_left
+workspace "$ws4" output $monitor_left
+workspace "$ws5" output $monitor_left
+workspace "$ws6" output $monitor_left
+workspace "$ws7" output $monitor_left
+workspace "$ws8" output $monitor_left
+workspace "$ws9" output $monitor_left
+workspace "$ws10" output $monitor_right
 
 # dwm-like tab switching
 bindsym $mod+Tab workspace back_and_forth
 
 # startup stuff
 exec_always ~/.i3/startup_script
-# There are some issues with polybar the way it's currently configured.
-#exec_always ~/.i3/polybar-muli-monitor.sh
 exec --no-startup-id "dunst"
 exec --no-startup-id "picom"
 exec --no-startup-id "numlockx"
