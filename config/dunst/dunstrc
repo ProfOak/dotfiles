@@ -13,6 +13,7 @@
     corner_radius = 10
     icon_position = left
     icon_path = /usr/share/icons/oxygen/base/64x64/status:/usr/share/icons/oxygen/base/64x64/devices
+    follow=mouse
 
 [urgency_low]
     background = "#000000"
