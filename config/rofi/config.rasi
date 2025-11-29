@@ -2,7 +2,7 @@ configuration {
     modes: [ combi ];
     font: "JetBrainsMono Nerd Font Mono 12";
     show-icons: true;
-    combi-modes: [ window, drun, run ];
+    combi-modes: [ drun, run ];
 }
 
 * {
