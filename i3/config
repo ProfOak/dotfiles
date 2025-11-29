@@ -32,7 +32,7 @@ bindsym $mod+Return exec ghostty
 # kill focused window
 bindsym $mod+Shift+c kill
 
-bindsym $mod+p exec rofi -show combi -combi-modi drun#run
+bindsym $mod+p exec rofi -show combi
 
 # change focus
 bindsym $mod+j focus left
