@@ -2,12 +2,14 @@ visualizer_data_source = "/tmp/mpd.fifo"
 visualizer_output_name = "my_fifo"
 visualizer_in_stereo = "yes"
 visualizer_type = "spectrum"
-visualizer_look = "+|"
 
 ignore_leading_the = yes
 display_bitrate = yes
 external_editor = vim
 playlist_disable_highlight_delay = 0
+playlist_separate_albums = yes
+centered_cursor = yes
+connected_message_on_startup = no
 
 # https://wiki.archlinux.org/title/Ncmpcpp#With_album_art
-execute_on_song_change = songinfo
+# execute_on_song_change = songinfo
