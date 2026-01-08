@@ -33,6 +33,8 @@ bindsym $mod+Return exec ghostty
 bindsym $mod+Shift+c kill
 
 bindsym $mod+p exec rofi -show combi
+# The calculator extension doesn't seem to work with rofi's combi mode.
+bindsym $mod+c exec --no-startup-id "rofi -show calc -modi calc -no-show-match -no-sort > /dev/null"
 
 # change focus
 bindsym $mod+j focus left
