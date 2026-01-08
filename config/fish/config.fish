@@ -46,7 +46,10 @@ alias clipboard="xclip -sel clip <"
 
 function saveimage
     set -l filename $argv[1]
-    if test -e $filename
+    if test -z $filename
+        set -l filename "$(date +"%Y-%m-%dT%H:%M:%S%z").png"
+        xclip -selection c -o >$filename
+    else if test -e $filename
         echo "Error: $filename exists"
     else
         xclip -selection c -o >$filename
@@ -201,7 +204,3 @@ end
 if not __ssh_agent_is_started
     __start_ssh_agent
 end
-
-set -x PYENV_ROOT $HOME/.pyenv
-fish_add_path $PYENV_ROOT/bin
-pyenv init - | source
