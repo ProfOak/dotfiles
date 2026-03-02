@@ -211,7 +211,6 @@ exec_always ~/.i3/startup_script
 exec --no-startup-id "dunst"
 exec --no-startup-id "picom"
 exec --no-startup-id "numlockx"
-exec --no-startup-id "kasts"
 exec --no-startup-id "ghostty"
 # Set GTK_THEME variable in /etc/environment for dark mode
 exec --no-startup-id "dino"

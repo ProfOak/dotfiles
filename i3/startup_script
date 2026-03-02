@@ -8,7 +8,7 @@ xset s off
 xbindkeys
 
 # wallpaper
-nitrogen --restore
+waypaper --restore
 
 xinput set-prop 11 'libinput Tapping Enabled' 1
 xinput set-prop 11 'libinput Tapping Enabled Default' 1
