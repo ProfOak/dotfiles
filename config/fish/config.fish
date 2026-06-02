@@ -1,9 +1,9 @@
 set fish_greeting
 
 #set -g EDITOR ed
-set -g EDITOR nvim
+set -gx EDITOR nvim
 # Set a go.mod project's GOPATH with `go env -w GOPATH=/path/to/gopath`
-set -g GOPATH $HOME/programming/go
+set -gx GOPATH $HOME/programming/go
 fish_add_path -g $HOME/programming/bin
 fish_add_path -g $HOME/.local/bin
 fish_add_path -g $GOPATH/bin
@@ -204,3 +204,5 @@ end
 if not __ssh_agent_is_started
     __start_ssh_agent
 end
+
+starship init fish | source
